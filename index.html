@@ -3,200 +3,281 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jewellers Galleria | Elegant Jewellery in Lahore</title>
-  <meta name="description" content="Jewellers Galleria - Elegant jewellery collections in Lahore. Discover bridal sets, rings, earrings, necklaces and timeless luxury pieces." />
+  <title>Jewellers Galleria | Premium Ladies Jewellery in Lahore</title>
+  <meta name="description" content="Jewellers Galleria - Premium ladies jewellery in Lahore. Shop bracelets, earrings, party wear sets, bridal sets, necklaces, rings, and lockets." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0f0a08;
-      --bg-soft: #17100d;
-      --card: rgba(255,255,255,0.06);
-      --card-border: rgba(255,255,255,0.10);
-      --gold: #d7b46a;
-      --gold-2: #f4df9f;
-      --text: #f7f2eb;
-      --muted: #c5b7a7;
-      --shadow: 0 20px 60px rgba(0,0,0,0.35);
-      --radius: 22px;
-      --max: 1220px;
+      --bg: #0f0f10;
+      --bg-soft: #1a1a1d;
+      --accent: #c6a972;
+      --accent-light: #f3e7d0;
+      --text: #f8f5ef;
+      --muted: #cfc5b6;
+      --card: rgba(243, 231, 208, 0.08);
+      --card-border: rgba(243, 231, 208, 0.16);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.32);
+      --radius: 24px;
+      --max-width: 1240px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top right, rgba(215,180,106,0.18), transparent 25%),
-        radial-gradient(circle at bottom left, rgba(255,215,130,0.08), transparent 20%),
-        linear-gradient(180deg, #0b0705 0%, #120b08 48%, #0c0806 100%);
-      line-height: 1.6;
+        radial-gradient(circle at top right, rgba(243,231,208,0.10), transparent 20%),
+        radial-gradient(circle at bottom left, rgba(198,169,114,0.08), transparent 18%),
+        linear-gradient(180deg, #0f0f10 0%, #1a1a1d 52%, #121316 100%);
       overflow-x: hidden;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
+    button, input, select { font: inherit; }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 32px));
+      margin: 0 auto;
+    }
 
     .topbar {
-      background: linear-gradient(90deg, #b98a2d, #f3d483, #b98a2d);
-      color: #23170a;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light), var(--accent));
+      color: #0f0f10;
       text-align: center;
       padding: 10px 16px;
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 0.4px;
-    }
-
-    .container {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
     }
 
     header {
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(12px);
-      background: rgba(10, 7, 5, 0.74);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(15, 15, 16, 0.84);
+      border-bottom: 1px solid rgba(243, 231, 208, 0.10);
     }
 
     .nav {
-      display: flex;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 18px;
       align-items: center;
-      justify-content: space-between;
-      gap: 20px;
       padding: 16px 0;
     }
 
     .brand {
       display: flex;
-      flex-direction: column;
-      gap: 2px;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand img {
+      width: 68px;
+      height: 68px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid rgba(232, 216, 196, 0.28);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      flex-shrink: 0;
     }
 
     .brand h1 {
       font-family: 'Cinzel', serif;
       font-size: 28px;
-      line-height: 1;
-      letter-spacing: 1px;
-      color: var(--gold-2);
+      line-height: 1.05;
+      color: var(--accent-light);
     }
 
     .brand span {
+      display: block;
       color: var(--muted);
       font-size: 12px;
       letter-spacing: 2px;
       text-transform: uppercase;
+      margin-top: 3px;
     }
 
-    nav ul {
+    .search-wrap {
+      position: relative;
+      max-width: 460px;
+      width: 100%;
+      justify-self: center;
+    }
+
+    .search-wrap input {
+      width: 100%;
+      padding: 14px 16px 14px 46px;
+      border-radius: 999px;
+      border: 1px solid rgba(232, 216, 196, 0.16);
+      background: rgba(232, 216, 196, 0.06);
+      color: var(--text);
+      outline: none;
+    }
+
+    .search-wrap input::placeholder { color: rgba(248,242,236,0.65); }
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.75;
+    }
+
+    .header-actions {
       display: flex;
-      gap: 24px;
-      list-style: none;
       align-items: center;
-      flex-wrap: wrap;
-      justify-content: center;
+      gap: 12px;
     }
 
-    nav a {
-      color: var(--muted);
-      font-weight: 500;
-      transition: 0.25s ease;
-    }
-
-    nav a:hover { color: var(--gold-2); }
-
-    .btn {
+    .icon-btn, .btn {
+      border: 1px solid rgba(232, 216, 196, 0.16);
+      border-radius: 999px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 14px 22px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.1);
-      font-weight: 700;
       transition: 0.25s ease;
       cursor: pointer;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, #c69637, #f7e0a4);
-      color: #241607;
-      box-shadow: 0 10px 30px rgba(215,180,106,0.24);
+    .icon-btn {
+      width: 48px;
+      height: 48px;
+      background: rgba(232, 216, 196, 0.06);
+      color: var(--text);
+      position: relative;
     }
 
-    .btn-primary:hover { transform: translateY(-2px); }
+    .btn {
+      padding: 14px 22px;
+      font-weight: 800;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: #0f0f10;
+      box-shadow: 0 12px 28px rgba(243,231,208,0.14);
+    }
+
     .btn-secondary {
-      background: rgba(255,255,255,0.04);
+      background: rgba(232, 216, 196, 0.06);
       color: var(--text);
     }
 
-    .hero {
-      padding: 82px 0 52px;
+    .btn:hover, .icon-btn:hover, .category-btn:hover, .filter-chip:hover { transform: translateY(-2px); }
+
+    .cart-count {
+      position: absolute;
+      top: -6px;
+      right: -2px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      color: #561c24;
+      font-size: 12px;
+      font-weight: 800;
+      display: grid;
+      place-items: center;
     }
+
+    .menu-bar {
+      border-top: 1px solid rgba(232, 216, 196, 0.08);
+    }
+
+    .menu-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      flex-wrap: wrap;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    nav a:hover, .active-link { color: var(--accent-light); }
+
+    .contact-mini {
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    section { padding: 78px 0; }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 34px;
-      align-items: stretch;
-    }
-
-    .hero-copy {
-      padding: 22px 0;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
     }
 
     .eyebrow {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       padding: 8px 14px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 999px;
-      color: var(--gold-2);
+      background: rgba(232,216,196,0.08);
+      border: 1px solid rgba(232,216,196,0.14);
+      color: var(--accent-light);
       font-size: 13px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .hero h2 {
       font-family: 'Cinzel', serif;
-      font-size: clamp(40px, 6vw, 76px);
-      line-height: 1.02;
+      font-size: clamp(40px, 5.6vw, 74px);
+      line-height: 1.04;
       margin-bottom: 18px;
-      max-width: 780px;
-    }
-
-    .hero h2 .highlight {
-      color: var(--gold-2);
-      text-shadow: 0 0 24px rgba(244,223,159,0.15);
     }
 
     .hero p {
       color: var(--muted);
       font-size: 18px;
-      max-width: 640px;
+      max-width: 700px;
       margin-bottom: 28px;
+      line-height: 1.7;
     }
 
     .hero-actions {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      margin-bottom: 30px;
+      margin-bottom: 24px;
     }
 
     .hero-stats {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 14px;
-      max-width: 720px;
+      max-width: 760px;
     }
 
     .stat {
       background: var(--card);
       border: 1px solid var(--card-border);
-      border-radius: 18px;
+      border-radius: 20px;
       padding: 18px;
       box-shadow: var(--shadow);
     }
@@ -204,80 +285,86 @@
     .stat strong {
       display: block;
       font-size: 28px;
-      color: var(--gold-2);
+      color: var(--accent-light);
       margin-bottom: 6px;
     }
 
-    .stat span { color: var(--muted); font-size: 14px; }
+    .stat span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
 
-    .hero-visual {
-      position: relative;
-      min-height: 620px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)),
-        url('https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=1200&q=80') center/cover;
+    .hero-card {
+      min-height: 650px;
       border-radius: 34px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.1);
+      position: relative;
       box-shadow: var(--shadow);
+      border: 1px solid rgba(243,231,208,0.10);
+      background:
+        linear-gradient(180deg, rgba(15,15,16,0.10), rgba(15,15,16,0.82)),
+        url('https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=1200&q=80') center/cover;
     }
 
-    .hero-visual::before {
-      content: '';
+    .hero-float {
       position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(16,10,7,0.04), rgba(16,10,7,0.78));
-    }
-
-    .floating-card {
-      position: absolute;
+      bottom: 24px;
       left: 24px;
       right: 24px;
-      bottom: 24px;
-      background: rgba(14, 9, 7, 0.78);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(15, 15, 16, 0.82);
+      border: 1px solid rgba(243,231,208,0.16);
       border-radius: 24px;
       padding: 22px;
       backdrop-filter: blur(10px);
     }
 
-    .floating-card h3 {
+    .hero-float h3 {
       font-family: 'Cinzel', serif;
-      font-size: 24px;
+      font-size: 28px;
+      color: var(--accent-light);
       margin-bottom: 8px;
-      color: var(--gold-2);
     }
 
-    .floating-card p { color: var(--muted); margin-bottom: 14px; }
-
-    section {
-      padding: 72px 0;
-    }
+    .hero-float p { color: var(--muted); margin-bottom: 12px; }
 
     .section-head {
       display: flex;
-      justify-content: space-between;
       align-items: end;
-      gap: 20px;
-      margin-bottom: 28px;
+      justify-content: space-between;
+      gap: 18px;
       flex-wrap: wrap;
+      margin-bottom: 28px;
     }
 
     .section-head h3 {
       font-family: 'Cinzel', serif;
-      font-size: clamp(28px, 4vw, 42px);
-      color: var(--gold-2);
-      margin-bottom: 8px;
+      font-size: clamp(30px, 4vw, 44px);
+      color: var(--accent-light);
+      margin-bottom: 10px;
     }
 
-    .section-head p { color: var(--muted); max-width: 720px; }
+    .section-head p {
+      color: var(--muted);
+      max-width: 760px;
+      line-height: 1.7;
+    }
 
-    .categories,
-    .products,
-    .reasons {
+    .categories-grid, .products-grid, .feature-grid, .policy-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 20px;
+    }
+
+    .categories-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .products-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .feature-grid, .policy-grid {
+      grid-template-columns: repeat(4, 1fr);
     }
 
     .card {
@@ -291,100 +378,177 @@
 
     .card:hover {
       transform: translateY(-6px);
-      border-color: rgba(244,223,159,0.24);
+      border-color: rgba(232,216,196,0.24);
     }
 
-    .category-image,
-    .product-image {
-      height: 260px;
+    .category-media, .product-media {
+      height: 270px;
       background-size: cover;
       background-position: center;
       position: relative;
     }
 
-    .category-image::after,
-    .product-image::after {
+    .category-media::after, .product-media::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.35));
+      background: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.35));
     }
 
-    .card-body {
-      padding: 20px;
-    }
-
-    .card-body h4 {
-      font-size: 22px;
-      margin-bottom: 8px;
-      color: var(--text);
-    }
-
-    .card-body p {
-      color: var(--muted);
-      font-size: 15px;
-      margin-bottom: 14px;
-    }
+    .card-body { padding: 20px; }
+    .card-body h4 { font-size: 22px; margin-bottom: 8px; }
+    .card-body p { color: var(--muted); margin-bottom: 14px; line-height: 1.6; }
 
     .pill {
       display: inline-block;
       padding: 7px 12px;
       border-radius: 999px;
       font-size: 12px;
+      font-weight: 800;
+      background: rgba(232,216,196,0.1);
+      color: var(--accent-light);
+      border: 1px solid rgba(232,216,196,0.16);
+      margin-bottom: 12px;
+    }
+
+    .category-btn {
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(232,216,196,0.16);
+      background: rgba(232,216,196,0.06);
+      color: var(--text);
+      display: inline-flex;
       font-weight: 700;
-      background: rgba(244,223,159,0.1);
-      color: var(--gold-2);
-      border: 1px solid rgba(244,223,159,0.16);
+      cursor: pointer;
+      transition: 0.25s ease;
     }
 
-    .product-card .card-body {
+    .toolbar {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 18px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .toolbar-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      gap: 14px;
+    }
+
+    .toolbar input, .toolbar select {
+      width: 100%;
+      padding: 13px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(232,216,196,0.14);
+      background: rgba(232,216,196,0.05);
+      color: var(--text);
+      outline: none;
+    }
+
+    .toolbar option { color: #111; }
+
+    .filter-chips {
       display: flex;
-      flex-direction: column;
       gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
     }
 
+    .filter-chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(232,216,196,0.14);
+      background: rgba(232,216,196,0.05);
+      color: var(--muted);
+      cursor: pointer;
+      transition: 0.25s ease;
+      font-weight: 700;
+    }
+
+    .filter-chip.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: #561c24;
+      border-color: transparent;
+    }
+
+    .product-card { display: flex; flex-direction: column; height: 100%; }
+    .product-card .card-body { display: flex; flex-direction: column; flex: 1; }
+
+    .product-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .stars { color: #ffd87f; font-size: 14px; }
     .price-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
+      margin-top: auto;
+      flex-wrap: wrap;
     }
 
     .price {
       font-size: 24px;
       font-weight: 800;
-      color: var(--gold-2);
+      color: var(--accent-light);
     }
 
     .old-price {
-      color: #9a8b79;
       text-decoration: line-through;
+      color: rgba(248,242,236,0.55);
       font-size: 14px;
       margin-right: 8px;
     }
 
-    .banner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
+    .product-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
     }
 
-    .banner-card {
-      position: relative;
+    .small-btn {
+      padding: 11px 14px;
+      font-size: 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(232,216,196,0.16);
+      background: rgba(232,216,196,0.06);
+      color: var(--text);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .banner-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .banner {
       min-height: 360px;
       border-radius: 28px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.1);
+      position: relative;
+      border: 1px solid rgba(232,216,196,0.12);
       box-shadow: var(--shadow);
       background-size: cover;
       background-position: center;
     }
 
-    .banner-card::before {
+    .banner::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.72));
+      background: linear-gradient(180deg, rgba(0,0,0,0.16), rgba(15,15,16,0.84));
     }
 
     .banner-content {
@@ -395,374 +559,529 @@
 
     .banner-content h4 {
       font-family: 'Cinzel', serif;
-      font-size: 30px;
+      font-size: 32px;
       margin-bottom: 10px;
-      color: var(--gold-2);
+      color: var(--accent-light);
     }
 
-    .banner-content p { color: #e8ddd1; margin-bottom: 14px; }
+    .banner-content p { color: #f0e2d2; max-width: 470px; margin-bottom: 14px; }
 
-    .reason {
+    .feature, .policy {
       padding: 24px;
       min-height: 220px;
     }
 
-    .reason .icon {
-      width: 54px;
-      height: 54px;
+    .feature-icon, .policy-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
       display: grid;
       place-items: center;
-      border-radius: 16px;
-      background: rgba(244,223,159,0.1);
-      color: var(--gold-2);
+      background: rgba(232,216,196,0.1);
+      border: 1px solid rgba(232,216,196,0.16);
       font-size: 24px;
+      color: var(--accent-light);
       margin-bottom: 18px;
-      border: 1px solid rgba(244,223,159,0.12);
     }
 
-    .reason h4 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
+    .feature h4, .policy h4 { font-size: 22px; margin-bottom: 10px; }
+    .feature p, .policy p { color: var(--muted); line-height: 1.65; }
 
-    .reason p { color: var(--muted); }
-
-    .contact-wrap {
+    .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 0.95fr 1.05fr;
       gap: 24px;
     }
 
-    .contact-card {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: 28px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .contact-card h4 {
-      font-family: 'Cinzel', serif;
-      font-size: 28px;
-      color: var(--gold-2);
-      margin-bottom: 16px;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .contact-item {
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .contact-item strong {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--gold-2);
-    }
-
-    .contact-item span,
-    .contact-item a { color: var(--muted); }
-
-    .map-box {
+    .contact-card, .contact-visual {
       min-height: 100%;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,0.22), rgba(0,0,0,0.68)),
-        url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1400&q=80') center/cover;
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,0.1);
       padding: 28px;
       display: flex;
       flex-direction: column;
       justify-content: end;
-      box-shadow: var(--shadow);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.12), rgba(15,15,16,0.84)),
+        url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1400&q=80') center/cover;
+      border: 1px solid rgba(232,216,196,0.12);
     }
 
-    .map-box h4 {
+    .contact-visual h4 {
       font-family: 'Cinzel', serif;
-      font-size: 32px;
+      font-size: 34px;
       margin-bottom: 10px;
-      color: var(--gold-2);
+      color: var(--accent-light);
     }
 
-    .map-box p { color: #eee0d1; margin-bottom: 16px; max-width: 500px; }
+    .contact-visual p { color: #f2e4d6; max-width: 520px; margin-bottom: 16px; line-height: 1.7; }
 
     footer {
-      padding: 26px 0 40px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      color: var(--muted);
+      border-top: 1px solid rgba(232,216,196,0.1);
+      padding: 28px 0 42px;
     }
 
     .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      gap: 22px;
+    }
+
+    .footer-brand h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 28px;
+      color: var(--accent-light);
+      margin-bottom: 10px;
+    }
+
+    .footer-brand p, .footer-links a, .footer-contact a, .footer-contact span {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .footer-links h5, .footer-contact h5 {
+      color: var(--accent-light);
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    .footer-links, .footer-contact {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 4px;
     }
 
     .socials {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
+      margin-top: 16px;
     }
 
     .socials a {
-      padding: 11px 16px;
+      padding: 11px 15px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: 0.25s ease;
-    }
-
-    .socials a:hover { color: var(--gold-2); border-color: rgba(244,223,159,0.22); }
-
-    .mobile-toggle {
-      display: none;
-      background: transparent;
+      background: rgba(232,216,196,0.06);
+      border: 1px solid rgba(232,216,196,0.12);
       color: var(--text);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 10px 14px;
-      font-size: 18px;
+      font-weight: 700;
     }
 
-    @media (max-width: 1060px) {
-      .hero-grid,
-      .contact-wrap,
-      .banner {
-        grid-template-columns: 1fr;
-      }
+    .footer-bottom {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(232,216,196,0.08);
+      color: rgba(248,242,236,0.72);
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
 
-      .categories,
-      .products,
-      .reasons {
-        grid-template-columns: repeat(2, minmax(0,1fr));
-      }
+    .mobile-menu-btn { display: none; }
 
-      .hero-visual { min-height: 520px; }
+    @media (max-width: 1120px) {
+      .nav { grid-template-columns: 1fr auto; }
+      .search-wrap { grid-column: 1 / -1; justify-self: stretch; order: 3; max-width: none; }
+      .hero-grid, .contact-grid, .banner-grid { grid-template-columns: 1fr; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .categories-grid { grid-template-columns: repeat(2, 1fr); }
+      .feature-grid, .policy-grid, .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .toolbar-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 760px) {
-      .mobile-toggle { display: inline-flex; }
-
-      nav {
-        position: absolute;
-        top: 100%;
-        left: 16px;
-        right: 16px;
-        background: rgba(11, 8, 6, 0.96);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 18px;
-        padding: 14px;
-        display: none;
+      section { padding: 62px 0; }
+      .topbar { font-size: 12px; }
+      .brand img { width: 56px; height: 56px; }
+      .brand h1 { font-size: 22px; }
+      .header-actions .btn-primary { display: none; }
+      .mobile-menu-btn {
+        display: inline-flex;
+        width: 48px;
+        height: 48px;
+        background: rgba(232,216,196,0.06);
+        border: 1px solid rgba(232,216,196,0.16);
+        border-radius: 14px;
+        color: var(--text);
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
       }
-
-      nav.open { display: block; }
+      .menu-inner { display: none; }
+      .menu-inner.open { display: flex; flex-direction: column; align-items: flex-start; }
       nav ul { flex-direction: column; align-items: flex-start; gap: 14px; }
-      .nav .btn-primary.desktop-btn { display: none; }
-      .hero { padding-top: 42px; }
+      .hero-stats, .categories-grid, .products-grid, .feature-grid, .policy-grid, .footer-grid, .toolbar-grid { grid-template-columns: 1fr; }
+      .hero-card { min-height: 460px; }
       .hero h2 { font-size: 42px; }
       .hero p { font-size: 16px; }
-      .hero-stats,
-      .categories,
-      .products,
-      .reasons {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-visual { min-height: 430px; }
-      .section-head { margin-bottom: 22px; }
-      .topbar { font-size: 12px; }
+      .footer-bottom { flex-direction: column; }
     }
   </style>
 </head>
 <body>
-  <div class="topbar">Luxury Jewellery in Lahore • Bridal Elegance • Premium Quality • Timeless Designs</div>
+  <div class="topbar">Jewellers Galleria • Premium Ladies Jewellery • Lahore • Bridal & Party Wear Collection</div>
 
   <header>
     <div class="container nav">
-      <div class="brand" style="flex-direction: row; align-items: center; gap: 14px;">
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAx
-NDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy
-MjIyMjL/wAARCAIAAgADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QATRAAAgEDAwIEAwUFBAQA
-AAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNk
-ZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8v
-P09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QATREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdh
-cR
+      <div class="brand">
+        <img src="/mnt/data/6ad40f65-f668-49d8-9ea9-c7ef2b4e5f37.jpg" alt="Jewellers Galleria Logo" />
+        <div>
+          <h1>Jewellers Galleria</h1>
+          <span>Luxury Jewellery Store</span>
+        </div>
+      </div>
 
-      <button class="mobile-toggle" id="menuBtn">☰</button>
+      <div class="search-wrap">
+        <span class="search-icon">⌕</span>
+        <input type="text" id="siteSearch" placeholder="Search rings, bracelets, earrings, lockets..." />
+      </div>
 
-      <nav id="navMenu">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#collections">Collections</a></li>
-          <li><a href="#featured">Featured</a></li>
-          <li><a href="#about">Why Us</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="https://wa.me/923321481499" target="_blank">WhatsApp</a></li>
-        </ul>
-      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" aria-label="Wishlist">♡</button>
+        <button class="icon-btn" aria-label="Cart">
+          🛒
+          <span class="cart-count">3</span>
+        </button>
+        <a class="btn btn-primary" href="https://wa.me/923321481499" target="_blank">Order on WhatsApp</a>
+        <button class="mobile-menu-btn" id="menuToggle">☰</button>
+      </div>
+    </div>
 
-      <a class="btn btn-primary desktop-btn" href="#contact">Visit Our Store</a>
+    <div class="menu-bar">
+      <div class="container menu-inner" id="menuInner">
+        <nav>
+          <ul>
+            <li><a class="active-link" href="#home">Home</a></li>
+            <li><a href="#categories">Shop</a></li>
+            <li><a href="#products">Collections</a></li>
+            <li><a href="#bridal">Bridal</a></li>
+            <li><a href="#party">Party Wear</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="contact-mini">
+          <span>📍 Lahore, Pakistan</span>
+          <a href="tel:+923321481499">📞 +92 332 1481499</a>
+          <a href="mailto:jewellersgalleria@gmail.com">✉ jewellersgalleria@gmail.com</a>
+        </div>
+      </div>
     </div>
   </header>
 
   <main>
     <section class="hero" id="home">
       <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">Jewellery crafted for modern elegance</span>
-          <h2>Where <span class="highlight">Luxury</span> Meets Timeless Beauty</h2>
+        <div>
+          <span class="eyebrow">✦ Elegant jewellery for every occasion</span>
+          <h2>Luxury Ladies Jewellery That Looks Premium, Not Cheap</h2>
           <p>
-            Welcome to <strong>Jewellers Galleria</strong> — a refined jewellery destination in Lahore for bridal charm, statement sparkle, and graceful everyday elegance. Designed to feel premium, feminine, and unforgettable.
+            Welcome to <strong>Jewellers Galleria</strong>. Explore a premium ladies jewellery collection with bracelets, earrings, party wear sets, bridal sets, necklaces, rings, and lockets. The design is built to feel like a real e-commerce store, not a weak one-page brochure.
           </p>
           <div class="hero-actions">
-            <a href="#featured" class="btn btn-primary">Explore Collection</a>
-            <a href="https://wa.me/923321481499" target="_blank" class="btn btn-secondary">Order on WhatsApp</a>
+            <a class="btn btn-primary" href="#products">Shop Collection</a>
+            <a class="btn btn-secondary" href="https://wa.me/923321481499" target="_blank">WhatsApp Inquiry</a>
           </div>
           <div class="hero-stats">
             <div class="stat">
-              <strong>Premium</strong>
-              <span>Elegant designs for bridal, festive, and daily wear.</span>
+              <strong>7+</strong>
+              <span>Core ladies jewellery categories ready for browsing.</span>
             </div>
             <div class="stat">
-              <strong>Lahore</strong>
-              <span>Proudly serving customers with style and trust.</span>
+              <strong>Premium</strong>
+              <span>Luxury black, champagne gold, and soft ivory branding with a premium storefront feel.</span>
             </div>
             <div class="stat">
               <strong>Direct</strong>
-              <span>Quick inquiry support through phone, email, and social.</span>
+              <span>Fast contact flow through WhatsApp, phone, email, Facebook, and Instagram.</span>
             </div>
           </div>
         </div>
 
-        <div class="hero-visual">
-          <div class="floating-card">
-            <h3>Signature Bridal & Party Pieces</h3>
-            <p>Discover jewelry that lifts your full look — from graceful earrings to complete bridal statements.</p>
-            <a href="#collections" class="btn btn-primary">Shop the Look</a>
+        <div class="hero-card">
+          <div class="hero-float">
+            <h3>Bridal, Party Wear & Everyday Elegance</h3>
+            <p>Browse standout pieces designed for weddings, events, gifts, and graceful daily styling.</p>
+            <a class="btn btn-primary" href="#categories">Browse Categories</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="collections">
+    <section id="categories">
       <div class="container">
         <div class="section-head">
           <div>
-            <h3>Shop by Collection</h3>
-            <p>Inspired by high-end jewellery storefronts, this layout highlights category-led browsing just like premium ecommerce homepages. The reference site also emphasizes category-first shopping and new arrivals. ([anzayjewellery.com](https://anzayjewellery.com/))</p>
+            <h3>Shop by Category</h3>
+            <p>These are the main ladies jewellery sections your website needs. Random product dumping is bad ecommerce. Proper categories are what make shopping feel clean and professional.</p>
           </div>
         </div>
 
-        <div class="categories">
+        <div class="categories-grid">
           <article class="card">
-            <div class="category-image" style="background-image:url('https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="category-media" style="background-image:url('https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?auto=format&fit=crop&w=900&q=80')"></div>
             <div class="card-body">
-              <span class="pill">Bridal Luxury</span>
-              <h4>Bridal Sets</h4>
-              <p>Grand, graceful pieces designed to make wedding looks unforgettable.</p>
-              <a href="#contact" class="btn btn-secondary">Inquire Now</a>
+              <span class="pill">Classic Elegance</span>
+              <h4>Bracelets</h4>
+              <p>Elegant bracelet options for formal looks, gifting, and graceful daily wear.</p>
+              <a href="#products" class="category-btn" data-filter="Bracelets">View Bracelets</a>
             </div>
           </article>
 
           <article class="card">
-            <div class="category-image" style="background-image:url('https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="category-media" style="background-image:url('https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=900&q=80')"></div>
             <div class="card-body">
-              <span class="pill">Everyday Sparkle</span>
+              <span class="pill">Statement Sparkle</span>
               <h4>Earrings</h4>
-              <p>Minimal elegance, statement shine, and occasion-ready styles.</p>
-              <a href="#contact" class="btn btn-secondary">Inquire Now</a>
+              <p>Studs, drops, and statement earrings built for modern feminine style.</p>
+              <a href="#products" class="category-btn" data-filter="Earrings">View Earrings</a>
+            </div>
+          </article>
+
+          <article class="card" id="party">
+            <div class="category-media" style="background-image:url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="card-body">
+              <span class="pill">Occasion Wear</span>
+              <h4>Party Wear Sets</h4>
+              <p>Bold sets for dinners, festive events, and glamorous styled looks.</p>
+              <a href="#products" class="category-btn" data-filter="Party Wear Set">View Party Wear</a>
+            </div>
+          </article>
+
+          <article class="card" id="bridal">
+            <div class="category-media" style="background-image:url('https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="card-body">
+              <span class="pill">Wedding Luxury</span>
+              <h4>Bridal Sets</h4>
+              <p>Grand bridal jewellery pieces designed to carry the full wedding look.</p>
+              <a href="#products" class="category-btn" data-filter="Bridal Sets">View Bridal</a>
             </div>
           </article>
 
           <article class="card">
-            <div class="category-image" style="background-image:url('https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="category-media" style="background-image:url('https://images.unsplash.com/photo-1619119069152-a2b331eb392a?auto=format&fit=crop&w=900&q=80')"></div>
             <div class="card-body">
-              <span class="pill">Classic Charm</span>
-              <h4>Rings</h4>
-              <p>Refined rings for gifting, engagement-inspired looks, and daily glamour.</p>
-              <a href="#contact" class="btn btn-secondary">Inquire Now</a>
+              <span class="pill">Luxury Layering</span>
+              <h4>Necklace</h4>
+              <p>Premium necklace designs for elegant styling and standout fashion moments.</p>
+              <a href="#products" class="category-btn" data-filter="Necklace">View Necklace</a>
             </div>
           </article>
 
           <article class="card">
-            <div class="category-image" style="background-image:url('https://images.unsplash.com/photo-1619119069152-a2b331eb392a?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="category-media" style="background-image:url('https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=80')"></div>
             <div class="card-body">
-              <span class="pill">Statement Grace</span>
-              <h4>Necklaces</h4>
-              <p>Graceful necklace sets that complete festive and formal looks beautifully.</p>
-              <a href="#contact" class="btn btn-secondary">Inquire Now</a>
+              <span class="pill">Delicate Beauty</span>
+              <h4>Lockets</h4>
+              <p>Simple and elegant locket styles for gifts, layering, and daily wear.</p>
+              <a href="#products" class="category-btn" data-filter="Lockets">View Lockets</a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="featured">
+    <section id="products">
       <div class="container">
         <div class="section-head">
           <div>
-            <h3>Featured Pieces</h3>
-            <p>The inspiration site highlights product grids, sale pricing, and new arrivals across party wear, daily wear, and gifting collections. This version keeps that premium storefront feel while making your brand cleaner and easier to edit in VS Code. ([anzayjewellery.com](https://anzayjewellery.com/))</p>
+            <h3>Explore Our Collection</h3>
+            <p>This section includes the features a real jewellery e-commerce site should have: search, category filtering, sorting, product cards, pricing, rating, and clear buy buttons. Without these, your website is just decoration.</p>
           </div>
         </div>
 
-        <div class="products">
-          <article class="card product-card">
-            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=80')"></div>
+        <div class="toolbar">
+          <div class="toolbar-grid">
+            <input type="text" id="productSearch" placeholder="Search products by name..." />
+            <select id="categoryFilter">
+              <option value="all">All Categories</option>
+              <option value="Bracelets">Bracelets</option>
+              <option value="Earrings">Earrings</option>
+              <option value="Party Wear Set">Party Wear Set</option>
+              <option value="Bridal Sets">Bridal Sets</option>
+              <option value="Necklace">Necklace</option>
+              <option value="Lockets">Lockets</option>
+            </select>
+            <select id="sortFilter">
+              <option value="default">Sort By</option>
+              <option value="low-high">Price: Low to High</option>
+              <option value="high-low">Price: High to Low</option>
+              <option value="name">Name A-Z</option>
+            </select>
+            <select>
+              <option>Occasion</option>
+              <option>Bridal</option>
+              <option>Party Wear</option>
+              <option>Casual</option>
+              <option>Gift</option>
+            </select>
+          </div>
+          <div class="filter-chips">
+            <button class="filter-chip active" data-filter="all">All</button>
+            <button class="filter-chip" data-filter="Bracelets">Bracelets</button>
+            <button class="filter-chip" data-filter="Earrings">Earrings</button>
+            <button class="filter-chip" data-filter="Party Wear Set">Party Wear Set</button>
+            <button class="filter-chip" data-filter="Bridal Sets">Bridal Sets</button>
+            <button class="filter-chip" data-filter="Necklace">Necklace</button>
+            <button class="filter-chip" data-filter="Lockets">Lockets</button>
+          </div>
+        </div>
+
+        <div class="products-grid" id="productGrid">
+          <article class="card product-card" data-category="Bracelets" data-name="Royal Charm Bracelet" data-price="3499">
+            <div class="product-media" style="background-image:url('https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=900&q=80')"></div>
             <div class="card-body">
-              <span class="pill">Best Seller</span>
-              <h4>Royal Bridal Necklace Set</h4>
-              <p>Luxury detailing for wedding and formal looks with a rich premium finish.</p>
+              <span class="pill">Bracelets</span>
+              <div class="product-meta">
+                <h4>Royal Charm Bracelet</h4>
+                <span class="stars">★★★★★</span>
+              </div>
+              <p>Elegant bracelet with a refined finish, perfect for gifting and everyday luxury.</p>
               <div class="price-row">
-                <div><span class="old-price">Rs. 18,999</span><span class="price">Rs. 14,999</span></div>
-                <a class="btn btn-secondary" href="https://wa.me/923321481499" target="_blank">Order</a>
+                <div><span class="old-price">Rs. 4,499</span><span class="price">Rs. 3,499</span></div>
+              </div>
+              <div class="product-actions">
+                <button class="small-btn">Add to Cart</button>
+                <a class="small-btn" href="https://wa.me/923321481499" target="_blank">Buy Now</a>
+                <button class="small-btn">♡ Wishlist</button>
               </div>
             </div>
           </article>
 
-          <article class="card product-card">
-            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?auto=format&fit=crop&w=900&q=80')"></div>
+          <article class="card product-card" data-category="Earrings" data-name="Crystal Drop Earrings" data-price="3699">
+            <div class="product-media" style="background-image:url('https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?auto=format&fit=crop&w=900&q=80')"></div>
             <div class="card-body">
-              <span class="pill">New Arrival</span>
-              <h4>Crystal Drop Earrings</h4>
-              <p>Light, elegant, and eye-catching for dinners, events, and celebrations.</p>
+              <span class="pill">Earrings</span>
+              <div class="product-meta">
+                <h4>Crystal Drop Earrings</h4>
+                <span class="stars">★★★★★</span>
+              </div>
+              <p>Elegant drop earrings with party-ready sparkle and a graceful premium look.</p>
               <div class="price-row">
-                <div><span class="old-price">Rs. 4,999</span><span class="price">Rs. 3,699</span></div>
-                <a class="btn btn-secondary" href="https://wa.me/923321481499" target="_blank">Order</a>
+                <div><span class="old-price">Rs. 4,799</span><span class="price">Rs. 3,699</span></div>
+              </div>
+              <div class="product-actions">
+                <button class="small-btn">Add to Cart</button>
+                <a class="small-btn" href="https://wa.me/923321481499" target="_blank">Buy Now</a>
+                <button class="small-btn">♡ Wishlist</button>
               </div>
             </div>
           </article>
 
-          <article class="card product-card">
-            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=80')"></div>
+          <article class="card product-card" data-category="Party Wear Set" data-name="Emerald Party Wear Set" data-price="8499">
+            <div class="product-media" style="background-image:url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=80')"></div>
             <div class="card-body">
-              <span class="pill">Trending</span>
-              <h4>Signature Gold Ring</h4>
-              <p>A modern statement ring with a luxury storefront feel and timeless styling.</p>
-              <div class="price-row">
-                <div><span class="old-price">Rs. 3,899</span><span class="price">Rs. 2,999</span></div>
-                <a class="btn btn-secondary" href="https://wa.me/923321481499" target="_blank">Order</a>
+              <span class="pill">Party Wear Set</span>
+              <div class="product-meta">
+                <h4>Emerald Party Wear Set</h4>
+                <span class="stars">★★★★★</span>
               </div>
-            </div>
-          </article>
-
-          <article class="card product-card">
-            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1619119069152-a2b331eb392a?auto=format&fit=crop&w=900&q=80')"></div>
-            <div class="card-body">
-              <span class="pill">Party Wear</span>
-              <h4>Emerald Evening Necklace</h4>
-              <p>Bold sparkle built for parties, festive evenings, and standout style.</p>
+              <p>Rich event-ready jewellery set designed for festive evenings and statement styling.</p>
               <div class="price-row">
                 <div><span class="old-price">Rs. 10,999</span><span class="price">Rs. 8,499</span></div>
-                <a class="btn btn-secondary" href="https://wa.me/923321481499" target="_blank">Order</a>
+              </div>
+              <div class="product-actions">
+                <button class="small-btn">Add to Cart</button>
+                <a class="small-btn" href="https://wa.me/923321481499" target="_blank">Buy Now</a>
+                <button class="small-btn">♡ Wishlist</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card product-card" data-category="Bridal Sets" data-name="Royal Bridal Necklace Set" data-price="14999">
+            <div class="product-media" style="background-image:url('https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="card-body">
+              <span class="pill">Bridal Sets</span>
+              <div class="product-meta">
+                <h4>Royal Bridal Necklace Set</h4>
+                <span class="stars">★★★★★</span>
+              </div>
+              <p>Luxury bridal set made to lift the full wedding look with rich traditional glamour.</p>
+              <div class="price-row">
+                <div><span class="old-price">Rs. 18,999</span><span class="price">Rs. 14,999</span></div>
+              </div>
+              <div class="product-actions">
+                <button class="small-btn">Add to Cart</button>
+                <a class="small-btn" href="https://wa.me/923321481499" target="_blank">Buy Now</a>
+                <button class="small-btn">♡ Wishlist</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card product-card" data-category="Necklace" data-name="Luxury Pearl Necklace" data-price="5999">
+            <div class="product-media" style="background-image:url('https://images.unsplash.com/photo-1619119069152-a2b331eb392a?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="card-body">
+              <span class="pill">Necklace</span>
+              <div class="product-meta">
+                <h4>Luxury Pearl Necklace</h4>
+                <span class="stars">★★★★☆</span>
+              </div>
+              <p>Soft luxury necklace styling for elegant outfits, events, and gift-friendly looks.</p>
+              <div class="price-row">
+                <div><span class="old-price">Rs. 7,299</span><span class="price">Rs. 5,999</span></div>
+              </div>
+              <div class="product-actions">
+                <button class="small-btn">Add to Cart</button>
+                <a class="small-btn" href="https://wa.me/923321481499" target="_blank">Buy Now</a>
+                <button class="small-btn">♡ Wishlist</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card product-card" data-category="Lockets" data-name="Golden Heart Locket" data-price="2899">
+            <div class="product-media" style="background-image:url('https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="card-body">
+              <span class="pill">Lockets</span>
+              <div class="product-meta">
+                <h4>Golden Heart Locket</h4>
+                <span class="stars">★★★★☆</span>
+              </div>
+              <p>Simple elegant locket style made for daily wear, gifting, and layering looks.</p>
+              <div class="price-row">
+                <div><span class="old-price">Rs. 3,499</span><span class="price">Rs. 2,899</span></div>
+              </div>
+              <div class="product-actions">
+                <button class="small-btn">Add to Cart</button>
+                <a class="small-btn" href="https://wa.me/923321481499" target="_blank">Buy Now</a>
+                <button class="small-btn">♡ Wishlist</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card product-card" data-category="Bracelets" data-name="Rose Luxe Bracelet" data-price="3999">
+            <div class="product-media" style="background-image:url('https://images.unsplash.com/photo-1603974372039-adc49044b6bd?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="card-body">
+              <span class="pill">Bracelets</span>
+              <div class="product-meta">
+                <h4>Rose Luxe Bracelet</h4>
+                <span class="stars">★★★★★</span>
+              </div>
+              <p>Modern feminine bracelet with a polished look for dinners, parties, and gifts.</p>
+              <div class="price-row">
+                <div><span class="old-price">Rs. 4,899</span><span class="price">Rs. 3,999</span></div>
+              </div>
+              <div class="product-actions">
+                <button class="small-btn">Add to Cart</button>
+                <a class="small-btn" href="https://wa.me/923321481499" target="_blank">Buy Now</a>
+                <button class="small-btn">♡ Wishlist</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card product-card" data-category="Earrings" data-name="Pearl Glow Studs" data-price="2499">
+            <div class="product-media" style="background-image:url('https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="card-body">
+              <span class="pill">Earrings</span>
+              <div class="product-meta">
+                <h4>Pearl Glow Studs</h4>
+                <span class="stars">★★★★☆</span>
+              </div>
+              <p>Minimal premium earring style that works for both casual and formal dressing.</p>
+              <div class="price-row">
+                <div><span class="old-price">Rs. 3,099</span><span class="price">Rs. 2,499</span></div>
+              </div>
+              <div class="product-actions">
+                <button class="small-btn">Add to Cart</button>
+                <a class="small-btn" href="https://wa.me/923321481499" target="_blank">Buy Now</a>
+                <button class="small-btn">♡ Wishlist</button>
               </div>
             </div>
           </article>
@@ -771,66 +1090,94 @@ cR
     </section>
 
     <section>
-      <div class="container banner">
-        <div class="banner-card" style="background-image:url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=80')">
+      <div class="container banner-grid">
+        <div class="banner" style="background-image:url('https://images.unsplash.com/photo-1611085583191-a3b181a88401?auto=format&fit=crop&w=1200&q=80')">
           <div class="banner-content">
-            <span class="pill">Wedding Season</span>
-            <h4>Make Your Bridal Look Unforgettable</h4>
-            <p>From intricate sets to soft sparkle accents, bring luxury to every celebration.</p>
-            <a href="https://wa.me/923321481499" target="_blank" class="btn btn-primary">Book on WhatsApp</a>
+            <span class="pill">Wedding Collection</span>
+            <h4>Bridal Jewellery That Commands Attention</h4>
+            <p>Strong bridal presentation matters. Wedding buyers don’t want average-looking pieces. They want something that feels expensive and memorable.</p>
+            <a class="btn btn-primary" href="#bridal">Explore Bridal</a>
           </div>
         </div>
-
-        <div class="banner-card" style="background-image:url('https://images.unsplash.com/photo-1611085583191-a3b181a88401?auto=format&fit=crop&w=1200&q=80')">
+        <div class="banner" style="background-image:url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=80')">
           <div class="banner-content">
-            <span class="pill">Store Experience</span>
-            <h4>Luxury Style with Personal Service</h4>
-            <p>Message us directly for product details, pricing, and collection inquiries.</p>
-            <a href="#contact" class="btn btn-primary">Contact Us</a>
+            <span class="pill">Party Collection</span>
+            <h4>Party Wear Sets With Real Storefront Energy</h4>
+            <p>Party wear should look stylish, visible, and premium online. Weak product presentation kills buyer trust fast.</p>
+            <a class="btn btn-primary" href="#party">Explore Party Wear</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="about">
+    <section>
       <div class="container">
         <div class="section-head">
           <div>
-            <h3>Why Jewellers Galleria</h3>
-            <p>Most small business websites fail because they look cheap, overloaded, and random. This version is structured to look premium first, then sell. That is what actually matters.</p>
+            <h3>Why This Website Works Better</h3>
+            <p>Most beginner sites fail because they only chase “pretty.” That is not enough. A jewellery store website must help customers browse, filter, trust, and contact fast.</p>
           </div>
         </div>
-
-        <div class="reasons">
-          <article class="card reason">
-            <div class="icon">✦</div>
-            <h4>Premium Visual Identity</h4>
-            <p>Dark luxury theme, gold highlights, strong typography, and clean sections to make your brand look expensive.</p>
+        <div class="feature-grid">
+          <article class="card feature">
+            <div class="feature-icon">⌕</div>
+            <h4>Search Function</h4>
+            <p>Visitors can search jewellery products instead of wasting time scrolling blindly.</p>
           </article>
-
-          <article class="card reason">
-            <div class="icon">✧</div>
-            <h4>Mobile Friendly</h4>
-            <p>Made responsive so it works on phones, tablets, and desktop without collapsing into a mess.</p>
+          <article class="card feature">
+            <div class="feature-icon">◈</div>
+            <h4>Category Filtering</h4>
+            <p>Bracelets, earrings, party wear sets, bridal sets, necklace, and lockets are separated properly.</p>
           </article>
-
-          <article class="card reason">
-            <div class="icon">✦</div>
-            <h4>Easy to Edit</h4>
-            <p>Single HTML file, so you can change product names, prices, text, and links directly in VS Code.</p>
+          <article class="card feature">
+            <div class="feature-icon">🛒</div>
+            <h4>Ecommerce Layout</h4>
+            <p>Product cards include prices, ratings, add-to-cart, buy-now, and wishlist actions.</p>
           </article>
+          <article class="card feature">
+            <div class="feature-icon">✦</div>
+            <h4>Luxury Branding</h4>
+            <p>Luxury black, champagne gold, and soft ivory create a cleaner premium jewellery look.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-          <article class="card reason">
-            <div class="icon">✧</div>
-            <h4>Direct Conversion Flow</h4>
-            <p>Built around WhatsApp and contact actions so visitors can ask and order fast instead of getting lost.</p>
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h3>Customer Support & Store Policies</h3>
+            <p>Real ecommerce trust is not just product photos. Customers also look for contact clarity, support, return confidence, and delivery expectations.</p>
+          </div>
+        </div>
+        <div class="policy-grid">
+          <article class="card policy">
+            <div class="policy-icon">☎</div>
+            <h4>Quick Support</h4>
+            <p>Direct customer support through WhatsApp, phone call, and email.</p>
+          </article>
+          <article class="card policy">
+            <div class="policy-icon">↺</div>
+            <h4>Easy Inquiry</h4>
+            <p>Customers can reach out about pricing, availability, and collection details instantly.</p>
+          </article>
+          <article class="card policy">
+            <div class="policy-icon">✧</div>
+            <h4>Elegant Collections</h4>
+            <p>Bridal and party wear categories are separated to improve browsing and product focus.</p>
+          </article>
+          <article class="card policy">
+            <div class="policy-icon">❤</div>
+            <h4>Brand Trust</h4>
+            <p>Professional presentation helps buyers take your jewellery business seriously.</p>
           </article>
         </div>
       </div>
     </section>
 
     <section id="contact">
-      <div class="container contact-wrap">
+      <div class="container contact-grid">
         <div class="contact-card">
           <h4>Contact Jewellers Galleria</h4>
           <div class="contact-list">
@@ -852,22 +1199,26 @@ cR
             </div>
             <div class="contact-item">
               <strong>Facebook</strong>
-              <a href="https://www.facebook.com/share/1EG21ZCDCf/" target="_blank">Visit Facebook Page</a>
+              <a href="https://www.facebook.com/share/1EG21ZCDCf/" target="_blank">facebook.com/share/1EG21ZCDCf/</a>
             </div>
             <div class="contact-item">
               <strong>Instagram</strong>
-              <a href="https://www.instagram.com/jewellersgalleria?igsh=Z2Q3eHp5cGZibDFy" target="_blank">Visit Instagram Profile</a>
+              <a href="https://www.instagram.com/jewellersgalleria?igsh=Z2Q3eHp5cGZibDFy" target="_blank">@jewellersgalleria</a>
             </div>
           </div>
-        </div>
-
-        <div class="map-box">
-          <span class="pill">Lahore Based</span>
-          <h4>Elegant Jewellery. Personal Service.</h4>
-          <p>For pricing, availability, bridal sets, party wear, and custom inquiries, message us directly on WhatsApp or social media.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://wa.me/923321481499" target="_blank">Chat on WhatsApp</a>
             <a class="btn btn-secondary" href="mailto:jewellersgalleria@gmail.com">Send Email</a>
+          </div>
+        </div>
+
+        <div class="contact-visual">
+          <span class="pill">Lahore Based Store</span>
+          <h4>Jewellery Presentation Matters</h4>
+          <p>Your site now has the right structure. But here’s the hard truth: real product photos are still the thing that will decide whether people trust you or ignore you. Replace the stock images next.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://www.facebook.com/share/1EG21ZCDCf/" target="_blank">Visit Facebook</a>
+            <a class="btn btn-secondary" href="https://www.instagram.com/jewellersgalleria?igsh=Z2Q3eHp5cGZibDFy" target="_blank">Visit Instagram</a>
           </div>
         </div>
       </div>
@@ -875,30 +1226,136 @@ cR
   </main>
 
   <footer>
-    <div class="container footer-grid">
-      <div>
-        <strong style="color: var(--gold-2); font-family: 'Cinzel', serif; font-size: 20px;">Jewellers Galleria</strong>
-        <div>© 2026 All rights reserved • Lahore, Pakistan</div>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>Jewellers Galleria</h4>
+          <p>Premium ladies jewellery in Lahore with bridal elegance, party wear glamour, and timeless statement pieces.</p>
+          <div class="socials">
+            <a href="https://www.facebook.com/share/1EG21ZCDCf/" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/jewellersgalleria?igsh=Z2Q3eHp5cGZibDFy" target="_blank">Instagram</a>
+            <a href="mailto:jewellersgalleria@gmail.com">Gmail</a>
+            <a href="https://wa.me/923321481499" target="_blank">WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h5>Quick Links</h5>
+          <a href="#home">Home</a>
+          <a href="#categories">Shop</a>
+          <a href="#products">Products</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="footer-links">
+          <h5>Collections</h5>
+          <a href="#products">Bracelets</a>
+          <a href="#products">Earrings</a>
+          <a href="#products">Party Wear Set</a>
+          <a href="#products">Bridal Sets</a>
+          <a href="#products">Necklace</a>
+          <a href="#products">Lockets</a>
+        </div>
+
+        <div class="footer-contact">
+          <h5>Contact</h5>
+          <span>Lahore, Pakistan</span>
+          <a href="tel:+923321481499">+92 332 1481499</a>
+          <a href="mailto:jewellersgalleria@gmail.com">jewellersgalleria@gmail.com</a>
+        </div>
       </div>
-      <div class="socials">
-        <a href="https://www.facebook.com/share/1EG21ZCDCf/" target="_blank">Facebook</a>
-        <a href="https://www.instagram.com/jewellersgalleria?igsh=Z2Q3eHp5cGZibDFy" target="_blank">Instagram</a>
-        <a href="mailto:jewellersgalleria@gmail.com">Gmail</a>
-        <a href="https://wa.me/923321481499" target="_blank">WhatsApp</a>
+
+      <div class="footer-bottom">
+        <span>© 2026 Jewellers Galleria. All rights reserved.</span>
+        <span>Built for VS Code editing and GitHub Pages hosting.</span>
       </div>
     </div>
   </footer>
 
   <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const navMenu = document.getElementById('navMenu');
+    const productGrid = document.getElementById('productGrid');
+    const products = Array.from(productGrid.querySelectorAll('.product-card'));
+    const productSearch = document.getElementById('productSearch');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const sortFilter = document.getElementById('sortFilter');
+    const filterChips = document.querySelectorAll('.filter-chip');
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const siteSearch = document.getElementById('siteSearch');
+    const menuToggle = document.getElementById('menuToggle');
+    const menuInner = document.getElementById('menuInner');
 
-    menuBtn.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
+    let activeCategory = 'all';
+
+    function renderProducts() {
+      let filtered = [...products];
+      const searchText = productSearch.value.toLowerCase().trim();
+
+      if (activeCategory !== 'all') {
+        filtered = filtered.filter(product => product.dataset.category === activeCategory);
+      }
+
+      if (searchText) {
+        filtered = filtered.filter(product => product.dataset.name.toLowerCase().includes(searchText));
+      }
+
+      const categoryValue = categoryFilter.value;
+      if (categoryValue !== 'all') {
+        filtered = filtered.filter(product => product.dataset.category === categoryValue);
+      }
+
+      const sortValue = sortFilter.value;
+      if (sortValue === 'low-high') {
+        filtered.sort((a, b) => Number(a.dataset.price) - Number(b.dataset.price));
+      } else if (sortValue === 'high-low') {
+        filtered.sort((a, b) => Number(b.dataset.price) - Number(a.dataset.price));
+      } else if (sortValue === 'name') {
+        filtered.sort((a, b) => a.dataset.name.localeCompare(b.dataset.name));
+      }
+
+      products.forEach(product => product.style.display = 'none');
+      filtered.forEach(product => {
+        product.style.display = 'flex';
+        productGrid.appendChild(product);
+      });
+    }
+
+    productSearch.addEventListener('input', renderProducts);
+    categoryFilter.addEventListener('change', renderProducts);
+    sortFilter.addEventListener('change', renderProducts);
+
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        filterChips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        activeCategory = chip.dataset.filter;
+        categoryFilter.value = 'all';
+        renderProducts();
+      });
+    });
+
+    categoryButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        activeCategory = button.dataset.filter;
+        filterChips.forEach(c => c.classList.remove('active'));
+        const matchingChip = document.querySelector(`.filter-chip[data-filter="${button.dataset.filter}"]`);
+        if (matchingChip) matchingChip.classList.add('active');
+        categoryFilter.value = 'all';
+        renderProducts();
+      });
+    });
+
+    siteSearch.addEventListener('input', () => {
+      productSearch.value = siteSearch.value;
+      document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+      renderProducts();
+    });
+
+    menuToggle.addEventListener('click', () => {
+      menuInner.classList.toggle('open');
     });
 
     document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', () => navMenu.classList.remove('open'));
+      link.addEventListener('click', () => menuInner.classList.remove('open'));
     });
   </script>
 </body>
