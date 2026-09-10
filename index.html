@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jewellers Galleria | Premium Ladies Jewellery in Lahore</title>
-  <meta name="description" content="Jewellers Galleria - Premium ladies jewellery in Lahore. Shop bracelets, earrings, party wear sets, bridal sets, necklaces, rings, and lockets." />
+  <meta name="description" content="Jewellers Galleria - Premium ladies jewellery in Lahore. Shop bracelets, earrings, party wear sets, bridal sets, necklaces, and lockets." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700;800&family=Pirata+One&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #0f0f10;
@@ -75,32 +75,33 @@
       display: flex;
       align-items: center;
       gap: 14px;
-    }
-
-    .brand img {
-      width: 68px;
-      height: 68px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 2px solid rgba(232, 216, 196, 0.28);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
       flex-shrink: 0;
     }
 
-    .brand h1 {
-      font-family: 'Cinzel', serif;
-      font-size: 28px;
-      line-height: 1.05;
-      color: var(--accent-light);
+    .brand-art {
+      width: 132px;
+      height: auto;
+      display: block;
+      flex-shrink: 0;
+      filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.32));
     }
 
-    .brand span {
-      display: block;
-      color: var(--muted);
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-top: 3px;
+    .brand-art .brand-wordmark {
+      font-family: 'Pirata One', 'Cinzel', serif;
+      letter-spacing: 1.5px;
+    }
+
+    .brand-art .brand-monogram {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -8px;
+    }
+
+    .brand-art .brand-submark {
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      letter-spacing: 13px;
     }
 
     .search-wrap {
@@ -171,7 +172,7 @@
 
     .btn:hover, .icon-btn:hover, .category-btn:hover, .filter-chip:hover { transform: translateY(-2px); }
 
-    .cart-count {
+    .count-badge {
       position: absolute;
       top: -6px;
       right: -2px;
@@ -184,6 +185,13 @@
       font-weight: 800;
       display: grid;
       place-items: center;
+    }
+
+    .icon-btn.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: #3f2410;
+      border-color: transparent;
+      box-shadow: 0 12px 24px rgba(243, 231, 208, 0.18);
     }
 
     .menu-bar {
@@ -474,8 +482,41 @@
       border-color: transparent;
     }
 
+    .results-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin: 22px 0 8px;
+      padding: 18px 20px;
+      border-radius: 24px;
+      background: rgba(243, 231, 208, 0.06);
+      border: 1px solid rgba(243, 231, 208, 0.1);
+      box-shadow: var(--shadow);
+    }
+
+    .results-copy strong,
+    .catalog-stat strong {
+      display: block;
+      color: var(--accent-light);
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .results-copy span,
+    .catalog-stat span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
     .product-card { display: flex; flex-direction: column; height: 100%; }
     .product-card .card-body { display: flex; flex-direction: column; flex: 1; }
+
+    .product-card h4 {
+      font-size: 21px;
+      line-height: 1.15;
+    }
 
     .product-meta {
       display: flex;
@@ -487,6 +528,28 @@
     }
 
     .stars { color: #ffd87f; font-size: 14px; }
+
+    .product-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .product-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(232, 216, 196, 0.06);
+      border: 1px solid rgba(232, 216, 196, 0.12);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
     .price-row {
       display: flex;
       align-items: center;
@@ -527,6 +590,514 @@
       cursor: pointer;
     }
 
+    .small-btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(232, 216, 196, 0.24);
+    }
+
+    .small-btn.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: #1d1207;
+      border-color: transparent;
+      box-shadow: 0 12px 24px rgba(243, 231, 208, 0.14);
+    }
+
+    .small-btn.ghost {
+      background: transparent;
+    }
+
+    .small-btn.is-active {
+      background: rgba(243, 231, 208, 0.12);
+      color: var(--accent-light);
+      border-color: rgba(243, 231, 208, 0.28);
+    }
+
+    .small-btn.full {
+      flex: 1 1 150px;
+      justify-content: center;
+    }
+
+    .stock-note {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.25s ease;
+      z-index: 140;
+    }
+
+    .drawer-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .side-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(420px, 100%);
+      height: 100vh;
+      padding: 24px;
+      background:
+        radial-gradient(circle at top right, rgba(243, 231, 208, 0.08), transparent 22%),
+        linear-gradient(180deg, #111214 0%, #0d0d0f 100%);
+      border-left: 1px solid rgba(243, 231, 208, 0.12);
+      box-shadow: -24px 0 60px rgba(0, 0, 0, 0.42);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      transform: translateX(100%);
+      transition: 0.28s ease;
+      z-index: 150;
+    }
+
+    .side-panel.open {
+      transform: translateX(0);
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .panel-title h4 {
+      font-family: 'Cinzel', serif;
+      color: var(--accent-light);
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+
+    .panel-title p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .close-panel {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      border: 1px solid rgba(232, 216, 196, 0.16);
+      background: rgba(232, 216, 196, 0.06);
+      color: var(--text);
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .close-panel:hover,
+    .qty-btn:hover {
+      background: rgba(232, 216, 196, 0.12);
+    }
+
+    .panel-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      overflow: auto;
+      padding-right: 4px;
+    }
+
+    .line-item {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 14px;
+      padding: 14px;
+      border-radius: 22px;
+      border: 1px solid rgba(243, 231, 208, 0.1);
+      background: rgba(243, 231, 208, 0.05);
+    }
+
+    .line-thumb {
+      min-height: 88px;
+      border-radius: 16px;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(243, 231, 208, 0.12);
+    }
+
+    .line-meta h5 {
+      font-size: 16px;
+      color: var(--accent-light);
+      margin-bottom: 6px;
+    }
+
+    .line-meta p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .line-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .qty-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 4px;
+      border-radius: 999px;
+      border: 1px solid rgba(243, 231, 208, 0.12);
+      background: rgba(243, 231, 208, 0.04);
+    }
+
+    .qty-btn {
+      width: 32px;
+      height: 32px;
+      border: 0;
+      border-radius: 50%;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .panel-footer {
+      margin-top: auto;
+      padding-top: 18px;
+      border-top: 1px solid rgba(243, 231, 208, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .panel-total {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+    }
+
+    .panel-total strong {
+      color: var(--accent-light);
+      font-size: 24px;
+    }
+
+    .btn[disabled],
+    .small-btn[disabled] {
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .checkout-shell {
+      position: fixed;
+      inset: 0;
+      padding: 24px;
+      display: grid;
+      place-items: center;
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.25s ease;
+      z-index: 170;
+    }
+
+    .checkout-shell.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .checkout-modal {
+      width: min(1100px, 100%);
+      max-height: calc(100vh - 48px);
+      overflow: auto;
+      padding: 24px;
+      border-radius: 32px;
+      border: 1px solid rgba(243, 231, 208, 0.12);
+      background:
+        radial-gradient(circle at top right, rgba(243, 231, 208, 0.08), transparent 24%),
+        linear-gradient(180deg, #111214 0%, #0c0c0e 100%);
+      box-shadow: 0 36px 80px rgba(0, 0, 0, 0.48);
+      transform: translateY(12px) scale(0.985);
+      transition: 0.25s ease;
+    }
+
+    .checkout-shell.open .checkout-modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .checkout-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .checkout-head h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 30px;
+      color: var(--accent-light);
+      margin: 10px 0 8px;
+    }
+
+    .checkout-head p {
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 760px;
+    }
+
+    .checkout-form {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .checkout-column {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .checkout-card {
+      padding: 22px;
+      border-radius: 28px;
+      border: 1px solid rgba(243, 231, 208, 0.1);
+      background: rgba(243, 231, 208, 0.05);
+      box-shadow: var(--shadow);
+    }
+
+    .checkout-card h5 {
+      font-family: 'Cinzel', serif;
+      font-size: 24px;
+      color: var(--accent-light);
+      margin-bottom: 16px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 14px 15px;
+      border-radius: 16px;
+      border: 1px solid rgba(243, 231, 208, 0.12);
+      background: rgba(243, 231, 208, 0.05);
+      color: var(--text);
+      outline: none;
+      transition: 0.2s ease;
+    }
+
+    .field textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: rgba(243, 231, 208, 0.26);
+      background: rgba(243, 231, 208, 0.08);
+    }
+
+    .field-help,
+    .section-note {
+      color: rgba(248, 242, 236, 0.72);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .payment-options {
+      display: grid;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .payment-option {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 16px;
+      border-radius: 20px;
+      border: 1px solid rgba(243, 231, 208, 0.1);
+      background: rgba(243, 231, 208, 0.04);
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .payment-option.is-selected {
+      border-color: rgba(243, 231, 208, 0.24);
+      background: rgba(243, 231, 208, 0.09);
+    }
+
+    .payment-option input {
+      margin-top: 4px;
+      accent-color: #f3e7d0;
+    }
+
+    .payment-option strong {
+      display: block;
+      color: var(--accent-light);
+      margin-bottom: 4px;
+    }
+
+    .payment-option span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .payment-panel {
+      margin-top: 14px;
+      padding: 16px;
+      border-radius: 22px;
+      border: 1px solid rgba(243, 231, 208, 0.1);
+      background: rgba(243, 231, 208, 0.04);
+    }
+
+    .payment-panel[hidden] {
+      display: none;
+    }
+
+    .summary-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 280px;
+      overflow: auto;
+      padding-right: 4px;
+    }
+
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(243, 231, 208, 0.08);
+    }
+
+    .summary-item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .summary-item strong {
+      display: block;
+      color: var(--accent-light);
+    }
+
+    .summary-item span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .summary-totals {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(243, 231, 208, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .summary-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+    }
+
+    .summary-row.total strong {
+      color: var(--accent-light);
+      font-size: 24px;
+    }
+
+    .checkout-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .checkout-actions .btn {
+      flex: 1 1 220px;
+    }
+
+    .empty-state {
+      padding: 26px 22px;
+      border-radius: 22px;
+      border: 1px dashed rgba(243, 231, 208, 0.18);
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.6;
+      background: rgba(243, 231, 208, 0.03);
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translate(-50%, 18px);
+      padding: 14px 18px;
+      border-radius: 999px;
+      background: rgba(15, 15, 16, 0.95);
+      border: 1px solid rgba(243, 231, 208, 0.18);
+      color: var(--accent-light);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.32);
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.25s ease;
+      z-index: 160;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
     .banner-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -565,6 +1136,121 @@
     }
 
     .banner-content p { color: #f0e2d2; max-width: 470px; margin-bottom: 14px; }
+
+    .lookbook-shell {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .lookbook-intro {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      background:
+        radial-gradient(circle at top right, rgba(243, 231, 208, 0.12), transparent 28%),
+        linear-gradient(180deg, rgba(243, 231, 208, 0.05), rgba(15, 15, 16, 0.92));
+    }
+
+    .lookbook-intro h4 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      color: var(--accent-light);
+      margin-bottom: 12px;
+    }
+
+    .lookbook-intro p {
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 520px;
+    }
+
+    .lookbook-points {
+      display: grid;
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    .lookbook-point {
+      padding: 16px 18px;
+      border-radius: 20px;
+      background: rgba(243, 231, 208, 0.05);
+      border: 1px solid rgba(243, 231, 208, 0.1);
+    }
+
+    .lookbook-point strong {
+      display: block;
+      color: var(--accent-light);
+      margin-bottom: 6px;
+      font-size: 15px;
+      letter-spacing: 0.4px;
+    }
+
+    .lookbook-point span {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .lookbook-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .lookbook-card {
+      min-height: 470px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      border: 1px solid rgba(232, 216, 196, 0.12);
+      box-shadow: var(--shadow);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .lookbook-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(6, 6, 8, 0.1), rgba(12, 12, 14, 0.86));
+    }
+
+    .lookbook-copy {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      z-index: 1;
+    }
+
+    .lookbook-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: rgba(248, 242, 236, 0.86);
+    }
+
+    .lookbook-copy h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 28px;
+      color: var(--accent-light);
+      margin-bottom: 8px;
+    }
+
+    .lookbook-copy p {
+      color: #f2e4d6;
+      line-height: 1.65;
+      max-width: 280px;
+    }
 
     .feature, .policy {
       padding: 24px;
@@ -681,7 +1367,7 @@
     @media (max-width: 1120px) {
       .nav { grid-template-columns: 1fr auto; }
       .search-wrap { grid-column: 1 / -1; justify-self: stretch; order: 3; max-width: none; }
-      .hero-grid, .contact-grid, .banner-grid { grid-template-columns: 1fr; }
+      .hero-grid, .contact-grid, .banner-grid, .lookbook-shell, .lookbook-grid { grid-template-columns: 1fr; }
       .products-grid { grid-template-columns: repeat(2, 1fr); }
       .categories-grid { grid-template-columns: repeat(2, 1fr); }
       .feature-grid, .policy-grid, .footer-grid { grid-template-columns: repeat(2, 1fr); }
@@ -691,9 +1377,12 @@
     @media (max-width: 760px) {
       section { padding: 62px 0; }
       .topbar { font-size: 12px; }
-      .brand img { width: 56px; height: 56px; }
-      .brand h1 { font-size: 22px; }
+      .brand-art { width: 98px; }
       .header-actions .btn-primary { display: none; }
+      .checkout-shell { padding: 10px; }
+      .checkout-modal { max-height: calc(100vh - 20px); padding: 18px; }
+      .checkout-grid, .form-grid { grid-template-columns: 1fr; }
+      .checkout-card { padding: 18px; }
       .mobile-menu-btn {
         display: inline-flex;
         width: 48px;
@@ -709,40 +1398,92 @@
       .menu-inner { display: none; }
       .menu-inner.open { display: flex; flex-direction: column; align-items: flex-start; }
       nav ul { flex-direction: column; align-items: flex-start; gap: 14px; }
-      .hero-stats, .categories-grid, .products-grid, .feature-grid, .policy-grid, .footer-grid, .toolbar-grid { grid-template-columns: 1fr; }
+      .hero-stats, .categories-grid, .products-grid, .feature-grid, .policy-grid, .footer-grid, .toolbar-grid, .lookbook-grid { grid-template-columns: 1fr; }
       .hero-card { min-height: 460px; }
+      .lookbook-card { min-height: 380px; }
       .hero h2 { font-size: 42px; }
       .hero p { font-size: 16px; }
+      .results-bar { padding: 16px; }
+      .side-panel { width: 100%; padding: 20px 16px; }
+      .checkout-actions .btn { flex-basis: 100%; }
       .footer-bottom { flex-direction: column; }
     }
   </style>
 </head>
 <body>
-  <div class="topbar">Jewellers Galleria • Premium Ladies Jewellery • Lahore • Bridal & Party Wear Collection</div>
+  <div class="topbar">Jewellers Galleria &bull; Premium Ladies Jewellery &bull; Lahore &bull; Bridal &amp; Party Wear Collection</div>
 
   <header>
     <div class="container nav">
       <div class="brand">
-        <img src="/mnt/data/6ad40f65-f668-49d8-9ea9-c7ef2b4e5f37.jpg" alt="Jewellers Galleria Logo" />
-        <div>
-          <h1>Jewellers Galleria</h1>
-          <span>Luxury Jewellery Store</span>
-        </div>
+        <svg class="brand-art" viewBox="0 0 500 500" role="img" aria-label="Jeweller's Galleria logo">
+          <defs>
+            <linearGradient id="brandGold" x1="10%" y1="10%" x2="90%" y2="90%">
+              <stop offset="0%" stop-color="#fff1bc" />
+              <stop offset="42%" stop-color="#eccb83" />
+              <stop offset="100%" stop-color="#b67e31" />
+            </linearGradient>
+            <filter id="brandGlow" x="-25%" y="-25%" width="150%" height="150%">
+              <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#f0cb79" flood-opacity="0.28" />
+            </filter>
+          </defs>
+
+          <rect width="500" height="500" rx="20" fill="#050405" />
+
+          <g transform="translate(250 174)" stroke="url(#brandGold)" stroke-linecap="round" stroke-linejoin="round" filter="url(#brandGlow)">
+            <g fill="none" stroke-width="4.5" opacity="0.98">
+              <g id="crestOrnament">
+                <path d="M0 -174 C12 -166 12 -151 0 -142 C-12 -151 -12 -166 0 -174 Z" fill="url(#brandGold)" stroke="none" />
+                <path d="M0 -154 C-20 -145 -32 -128 -30 -108 C-18 -120 -2 -123 12 -116 C27 -108 34 -92 30 -76 C16 -86 2 -86 -8 -76" />
+                <path d="M0 -154 C20 -145 32 -128 30 -108 C18 -120 2 -123 -12 -116 C-27 -108 -34 -92 -30 -76 C-16 -86 -2 -86 8 -76" />
+                <path d="M-56 -104 C-46 -114 -34 -116 -22 -110" />
+                <path d="M56 -104 C46 -114 34 -116 22 -110" />
+                <circle cx="-39" cy="-90" r="4.5" fill="url(#brandGold)" stroke="none" />
+                <circle cx="39" cy="-90" r="4.5" fill="url(#brandGold)" stroke="none" />
+              </g>
+              <use href="#crestOrnament" transform="rotate(45)" />
+              <use href="#crestOrnament" transform="rotate(90)" />
+              <use href="#crestOrnament" transform="rotate(135)" />
+              <use href="#crestOrnament" transform="rotate(180)" />
+              <use href="#crestOrnament" transform="rotate(225)" />
+              <use href="#crestOrnament" transform="rotate(270)" />
+              <use href="#crestOrnament" transform="rotate(315)" />
+            </g>
+
+            <circle r="121" fill="none" stroke-width="5.5" />
+            <circle r="105" fill="none" stroke-width="9" />
+            <circle r="88" fill="none" stroke-width="2.8" stroke-dasharray="8 5" />
+            <circle r="70" fill="#070607" stroke-width="6" />
+
+            <g fill="url(#brandGold)" stroke="none">
+              <text class="brand-monogram" x="-12" y="34" font-size="136">J</text>
+              <text class="brand-monogram" x="26" y="40" font-size="130">G</text>
+            </g>
+          </g>
+
+          <g fill="url(#brandGold)" text-anchor="middle">
+            <text class="brand-wordmark" x="250" y="384" font-size="62">Jeweller's Galleria</text>
+            <text class="brand-submark" x="250" y="432" font-size="24">JEWELLRY</text>
+          </g>
+        </svg>
       </div>
 
       <div class="search-wrap">
-        <span class="search-icon">⌕</span>
-        <input type="text" id="siteSearch" placeholder="Search rings, bracelets, earrings, lockets..." />
+        <span class="search-icon">&#128269;</span>
+        <input type="text" id="siteSearch" placeholder="Search bracelets, earrings, necklaces, lockets..." />
       </div>
 
       <div class="header-actions">
-        <button class="icon-btn" aria-label="Wishlist">♡</button>
-        <button class="icon-btn" aria-label="Cart">
-          🛒
-          <span class="cart-count">3</span>
+        <button class="icon-btn" id="wishlistToggle" type="button" aria-label="Open favourites">
+          &#9825;
+          <span class="count-badge" id="wishlistCount">0</span>
+        </button>
+        <button class="icon-btn" id="cartToggle" type="button" aria-label="Open cart">
+          &#128722;
+          <span class="count-badge" id="cartCount">0</span>
         </button>
         <a class="btn btn-primary" href="https://wa.me/923321481499" target="_blank">Order on WhatsApp</a>
-        <button class="mobile-menu-btn" id="menuToggle">☰</button>
+        <button class="mobile-menu-btn" id="menuToggle" type="button">&#9776;</button>
       </div>
     </div>
 
@@ -752,6 +1493,7 @@
           <ul>
             <li><a class="active-link" href="#home">Home</a></li>
             <li><a href="#categories">Shop</a></li>
+            <li><a href="#lookbook">Lookbook</a></li>
             <li><a href="#products">Collections</a></li>
             <li><a href="#bridal">Bridal</a></li>
             <li><a href="#party">Party Wear</a></li>
@@ -759,9 +1501,9 @@
           </ul>
         </nav>
         <div class="contact-mini">
-          <span>📍 Lahore, Pakistan</span>
-          <a href="tel:+923321481499">📞 +92 332 1481499</a>
-          <a href="mailto:jewellersgalleria@gmail.com">✉ jewellersgalleria@gmail.com</a>
+          <span>&#128205; Lahore, Pakistan</span>
+          <a href="tel:+923321481499">&#128222; +92 332 1481499</a>
+          <a href="mailto:jewellersgalleria@gmail.com">&#9993; jewellersgalleria@gmail.com</a>
         </div>
       </div>
     </div>
@@ -771,10 +1513,10 @@
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div>
-          <span class="eyebrow">✦ Elegant jewellery for every occasion</span>
-          <h2>Luxury Ladies Jewellery That Looks Premium, Not Cheap</h2>
+          <span class="eyebrow">&#10022; Elegant jewellery for every occasion</span>
+          <h2>Curated Bridal, Party Wear, and Everyday Jewellery With a Luxury Finish</h2>
           <p>
-            Welcome to <strong>Jewellers Galleria</strong>. Explore a premium ladies jewellery collection with bracelets, earrings, party wear sets, bridal sets, necklaces, rings, and lockets. The design is built to feel like a real e-commerce store, not a weak one-page brochure.
+            <strong>Jewellers Galleria</strong> brings together statement bridal sets, refined occasion pieces, and easy-to-style everyday jewellery in a storefront designed to feel polished, modern, and trustworthy from the first scroll.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#products">Shop Collection</a>
@@ -782,26 +1524,80 @@
           </div>
           <div class="hero-stats">
             <div class="stat">
-              <strong>7+</strong>
-              <span>Core ladies jewellery categories ready for browsing.</span>
+              <strong>24</strong>
+              <span>Curated product cards with pricing, imagery, and quick ordering tools.</span>
             </div>
             <div class="stat">
-              <strong>Premium</strong>
-              <span>Luxury black, champagne gold, and soft ivory branding with a premium storefront feel.</span>
+              <strong>Editorial</strong>
+              <span>Rich photography, premium styling, and a refined layout that elevates the brand.</span>
             </div>
             <div class="stat">
-              <strong>Direct</strong>
-              <span>Fast contact flow through WhatsApp, phone, email, Facebook, and Instagram.</span>
+              <strong>Personal</strong>
+              <span>Direct support through WhatsApp, email, Instagram, and Facebook for fast inquiries.</span>
             </div>
           </div>
         </div>
 
         <div class="hero-card">
           <div class="hero-float">
-            <h3>Bridal, Party Wear & Everyday Elegance</h3>
-            <p>Browse standout pieces designed for weddings, events, gifts, and graceful daily styling.</p>
+            <h3>Styled to Feel Like a Premium Boutique</h3>
+            <p>From bridal portraits to gifting moments, each collection is presented with cleaner visuals and a more luxurious storefront rhythm.</p>
             <a class="btn btn-primary" href="#categories">Browse Categories</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="lookbook">
+      <div class="container lookbook-shell">
+        <article class="card lookbook-intro">
+          <div>
+            <span class="pill">Editorial Lookbook</span>
+            <h4>Pictures That Sell the Mood, Not Just the Product</h4>
+            <p>
+              Professional jewellery sites do more than list products. They create atmosphere, show styling direction, and help customers imagine the piece in bridal, occasion, and gifting settings.
+            </p>
+          </div>
+          <div class="lookbook-points">
+            <div class="lookbook-point">
+              <strong>Bridal storytelling</strong>
+              <span>Richer visuals help bridal sets feel ceremonial, elevated, and worthy of special events.</span>
+            </div>
+            <div class="lookbook-point">
+              <strong>Luxury presentation</strong>
+              <span>Editorial photo blocks break up the catalogue and make the page feel more premium.</span>
+            </div>
+            <div class="lookbook-point">
+              <strong>Gift-ready confidence</strong>
+              <span>Customers trust stores faster when the imagery feels intentional and beautifully curated.</span>
+            </div>
+          </div>
+        </article>
+
+        <div class="lookbook-grid">
+          <article class="lookbook-card" style="background-image:url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=80')">
+            <div class="lookbook-copy">
+              <span class="lookbook-meta">Bridal Edit</span>
+              <h4>Heirloom Glow</h4>
+              <p>Grand textures and ceremonial shine for wedding styling, formal portraits, and statement entrances.</p>
+            </div>
+          </article>
+
+          <article class="lookbook-card" style="background-image:url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=80')">
+            <div class="lookbook-copy">
+              <span class="lookbook-meta">Occasion Wear</span>
+              <h4>Evening Sparkle</h4>
+              <p>Confident party pieces with a glamorous profile for receptions, festive events, and dressy dinners.</p>
+            </div>
+          </article>
+
+          <article class="lookbook-card" style="background-image:url('https://images.unsplash.com/photo-1619119069152-a2b331eb392a?auto=format&fit=crop&w=1200&q=80')">
+            <div class="lookbook-copy">
+              <span class="lookbook-meta">Everyday Luxury</span>
+              <h4>Soft Refinement</h4>
+              <p>Elegant necklaces and keepsake pieces designed to feel polished, wearable, and gift-worthy.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -811,13 +1607,13 @@
         <div class="section-head">
           <div>
             <h3>Shop by Category</h3>
-            <p>These are the main ladies jewellery sections your website needs. Random product dumping is bad ecommerce. Proper categories are what make shopping feel clean and professional.</p>
+            <p>Every category is presented with clearer structure so shoppers can move from bridal sets to delicate lockets without the page feeling crowded or confusing.</p>
           </div>
         </div>
 
         <div class="categories-grid">
           <article class="card">
-            <div class="category-media" style="background-image:url('https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="category-media" style="background-image:url('https://images.unsplash.com/photo-1741071520895-47d81779c11e?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000')"></div>
             <div class="card-body">
               <span class="pill">Classic Elegance</span>
               <h4>Bracelets</h4>
@@ -827,7 +1623,7 @@
           </article>
 
           <article class="card">
-            <div class="category-media" style="background-image:url('https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="category-media" style="background-image:url('https://images.unsplash.com/photo-1781901726815-29af905d0b46?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000')"></div>
             <div class="card-body">
               <span class="pill">Statement Sparkle</span>
               <h4>Earrings</h4>
@@ -837,7 +1633,7 @@
           </article>
 
           <article class="card" id="party">
-            <div class="category-media" style="background-image:url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="category-media" style="background-image:url('https://images.unsplash.com/photo-1720729823936-185a87978043?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000')"></div>
             <div class="card-body">
               <span class="pill">Occasion Wear</span>
               <h4>Party Wear Sets</h4>
@@ -847,7 +1643,7 @@
           </article>
 
           <article class="card" id="bridal">
-            <div class="category-media" style="background-image:url('https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="category-media" style="background-image:url('https://images.unsplash.com/photo-1736849597224-5c7a8d066931?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000')"></div>
             <div class="card-body">
               <span class="pill">Wedding Luxury</span>
               <h4>Bridal Sets</h4>
@@ -857,7 +1653,7 @@
           </article>
 
           <article class="card">
-            <div class="category-media" style="background-image:url('https://images.unsplash.com/photo-1619119069152-a2b331eb392a?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="category-media" style="background-image:url('https://images.unsplash.com/photo-1611085583191-a3b181a88401?auto=format&fit=crop&w=1400&q=80')"></div>
             <div class="card-body">
               <span class="pill">Luxury Layering</span>
               <h4>Necklace</h4>
@@ -867,7 +1663,7 @@
           </article>
 
           <article class="card">
-            <div class="category-media" style="background-image:url('https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="category-media" style="background-image:url('https://images.unsplash.com/photo-1486821416551-68a65ef4d618?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000')"></div>
             <div class="card-body">
               <span class="pill">Delicate Beauty</span>
               <h4>Lockets</h4>
@@ -884,7 +1680,7 @@
         <div class="section-head">
           <div>
             <h3>Explore Our Collection</h3>
-            <p>This section includes the features a real jewellery e-commerce site should have: search, category filtering, sorting, product cards, pricing, rating, and clear buy buttons. Without these, your website is just decoration.</p>
+            <p>Browse a fuller catalogue with pricing, favourites, filters, and a working cart flow designed to feel closer to a premium jewellery storefront.</p>
           </div>
         </div>
 
@@ -906,12 +1702,12 @@
               <option value="high-low">Price: High to Low</option>
               <option value="name">Name A-Z</option>
             </select>
-            <select>
-              <option>Occasion</option>
-              <option>Bridal</option>
-              <option>Party Wear</option>
-              <option>Casual</option>
-              <option>Gift</option>
+            <select id="occasionFilter">
+              <option value="all">All Occasions</option>
+              <option value="Bridal">Bridal</option>
+              <option value="Party Wear">Party Wear</option>
+              <option value="Casual">Casual</option>
+              <option value="Gift">Gift</option>
             </select>
           </div>
           <div class="filter-chips">
@@ -925,167 +1721,18 @@
           </div>
         </div>
 
-        <div class="products-grid" id="productGrid">
-          <article class="card product-card" data-category="Bracelets" data-name="Royal Charm Bracelet" data-price="3499">
-            <div class="product-media" style="background-image:url('https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=900&q=80')"></div>
-            <div class="card-body">
-              <span class="pill">Bracelets</span>
-              <div class="product-meta">
-                <h4>Royal Charm Bracelet</h4>
-                <span class="stars">★★★★★</span>
-              </div>
-              <p>Elegant bracelet with a refined finish, perfect for gifting and everyday luxury.</p>
-              <div class="price-row">
-                <div><span class="old-price">Rs. 4,499</span><span class="price">Rs. 3,499</span></div>
-              </div>
-              <div class="product-actions">
-                <button class="small-btn">Add to Cart</button>
-                <a class="small-btn" href="https://wa.me/923321481499" target="_blank">Buy Now</a>
-                <button class="small-btn">♡ Wishlist</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="card product-card" data-category="Earrings" data-name="Crystal Drop Earrings" data-price="3699">
-            <div class="product-media" style="background-image:url('https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?auto=format&fit=crop&w=900&q=80')"></div>
-            <div class="card-body">
-              <span class="pill">Earrings</span>
-              <div class="product-meta">
-                <h4>Crystal Drop Earrings</h4>
-                <span class="stars">★★★★★</span>
-              </div>
-              <p>Elegant drop earrings with party-ready sparkle and a graceful premium look.</p>
-              <div class="price-row">
-                <div><span class="old-price">Rs. 4,799</span><span class="price">Rs. 3,699</span></div>
-              </div>
-              <div class="product-actions">
-                <button class="small-btn">Add to Cart</button>
-                <a class="small-btn" href="https://wa.me/923321481499" target="_blank">Buy Now</a>
-                <button class="small-btn">♡ Wishlist</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="card product-card" data-category="Party Wear Set" data-name="Emerald Party Wear Set" data-price="8499">
-            <div class="product-media" style="background-image:url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=80')"></div>
-            <div class="card-body">
-              <span class="pill">Party Wear Set</span>
-              <div class="product-meta">
-                <h4>Emerald Party Wear Set</h4>
-                <span class="stars">★★★★★</span>
-              </div>
-              <p>Rich event-ready jewellery set designed for festive evenings and statement styling.</p>
-              <div class="price-row">
-                <div><span class="old-price">Rs. 10,999</span><span class="price">Rs. 8,499</span></div>
-              </div>
-              <div class="product-actions">
-                <button class="small-btn">Add to Cart</button>
-                <a class="small-btn" href="https://wa.me/923321481499" target="_blank">Buy Now</a>
-                <button class="small-btn">♡ Wishlist</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="card product-card" data-category="Bridal Sets" data-name="Royal Bridal Necklace Set" data-price="14999">
-            <div class="product-media" style="background-image:url('https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=80')"></div>
-            <div class="card-body">
-              <span class="pill">Bridal Sets</span>
-              <div class="product-meta">
-                <h4>Royal Bridal Necklace Set</h4>
-                <span class="stars">★★★★★</span>
-              </div>
-              <p>Luxury bridal set made to lift the full wedding look with rich traditional glamour.</p>
-              <div class="price-row">
-                <div><span class="old-price">Rs. 18,999</span><span class="price">Rs. 14,999</span></div>
-              </div>
-              <div class="product-actions">
-                <button class="small-btn">Add to Cart</button>
-                <a class="small-btn" href="https://wa.me/923321481499" target="_blank">Buy Now</a>
-                <button class="small-btn">♡ Wishlist</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="card product-card" data-category="Necklace" data-name="Luxury Pearl Necklace" data-price="5999">
-            <div class="product-media" style="background-image:url('https://images.unsplash.com/photo-1619119069152-a2b331eb392a?auto=format&fit=crop&w=900&q=80')"></div>
-            <div class="card-body">
-              <span class="pill">Necklace</span>
-              <div class="product-meta">
-                <h4>Luxury Pearl Necklace</h4>
-                <span class="stars">★★★★☆</span>
-              </div>
-              <p>Soft luxury necklace styling for elegant outfits, events, and gift-friendly looks.</p>
-              <div class="price-row">
-                <div><span class="old-price">Rs. 7,299</span><span class="price">Rs. 5,999</span></div>
-              </div>
-              <div class="product-actions">
-                <button class="small-btn">Add to Cart</button>
-                <a class="small-btn" href="https://wa.me/923321481499" target="_blank">Buy Now</a>
-                <button class="small-btn">♡ Wishlist</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="card product-card" data-category="Lockets" data-name="Golden Heart Locket" data-price="2899">
-            <div class="product-media" style="background-image:url('https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=80')"></div>
-            <div class="card-body">
-              <span class="pill">Lockets</span>
-              <div class="product-meta">
-                <h4>Golden Heart Locket</h4>
-                <span class="stars">★★★★☆</span>
-              </div>
-              <p>Simple elegant locket style made for daily wear, gifting, and layering looks.</p>
-              <div class="price-row">
-                <div><span class="old-price">Rs. 3,499</span><span class="price">Rs. 2,899</span></div>
-              </div>
-              <div class="product-actions">
-                <button class="small-btn">Add to Cart</button>
-                <a class="small-btn" href="https://wa.me/923321481499" target="_blank">Buy Now</a>
-                <button class="small-btn">♡ Wishlist</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="card product-card" data-category="Bracelets" data-name="Rose Luxe Bracelet" data-price="3999">
-            <div class="product-media" style="background-image:url('https://images.unsplash.com/photo-1603974372039-adc49044b6bd?auto=format&fit=crop&w=900&q=80')"></div>
-            <div class="card-body">
-              <span class="pill">Bracelets</span>
-              <div class="product-meta">
-                <h4>Rose Luxe Bracelet</h4>
-                <span class="stars">★★★★★</span>
-              </div>
-              <p>Modern feminine bracelet with a polished look for dinners, parties, and gifts.</p>
-              <div class="price-row">
-                <div><span class="old-price">Rs. 4,899</span><span class="price">Rs. 3,999</span></div>
-              </div>
-              <div class="product-actions">
-                <button class="small-btn">Add to Cart</button>
-                <a class="small-btn" href="https://wa.me/923321481499" target="_blank">Buy Now</a>
-                <button class="small-btn">♡ Wishlist</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="card product-card" data-category="Earrings" data-name="Pearl Glow Studs" data-price="2499">
-            <div class="product-media" style="background-image:url('https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?auto=format&fit=crop&w=900&q=80')"></div>
-            <div class="card-body">
-              <span class="pill">Earrings</span>
-              <div class="product-meta">
-                <h4>Pearl Glow Studs</h4>
-                <span class="stars">★★★★☆</span>
-              </div>
-              <p>Minimal premium earring style that works for both casual and formal dressing.</p>
-              <div class="price-row">
-                <div><span class="old-price">Rs. 3,099</span><span class="price">Rs. 2,499</span></div>
-              </div>
-              <div class="product-actions">
-                <button class="small-btn">Add to Cart</button>
-                <a class="small-btn" href="https://wa.me/923321481499" target="_blank">Buy Now</a>
-                <button class="small-btn">♡ Wishlist</button>
-              </div>
-            </div>
-          </article>
+        <div class="results-bar">
+          <div class="results-copy">
+            <strong id="resultsCount">24 pieces in the collection</strong>
+            <span id="resultsSummary">Use search, filters, and sorting to refine the catalogue.</span>
+          </div>
+          <div class="catalog-stat">
+            <span>Cart subtotal</span>
+            <strong id="cartSubtotal">Rs. 0</strong>
+          </div>
         </div>
+
+        <div class="products-grid" id="productGrid"></div>
       </div>
     </section>
 
@@ -1094,16 +1741,16 @@
         <div class="banner" style="background-image:url('https://images.unsplash.com/photo-1611085583191-a3b181a88401?auto=format&fit=crop&w=1200&q=80')">
           <div class="banner-content">
             <span class="pill">Wedding Collection</span>
-            <h4>Bridal Jewellery That Commands Attention</h4>
-            <p>Strong bridal presentation matters. Wedding buyers don’t want average-looking pieces. They want something that feels expensive and memorable.</p>
+            <h4>Bridal Jewellery With Ceremony-Worthy Presence</h4>
+            <p>Our bridal presentation is built to feel elegant, celebratory, and memorable so the collection carries the emotion of the occasion.</p>
             <a class="btn btn-primary" href="#bridal">Explore Bridal</a>
           </div>
         </div>
         <div class="banner" style="background-image:url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=80')">
           <div class="banner-content">
             <span class="pill">Party Collection</span>
-            <h4>Party Wear Sets With Real Storefront Energy</h4>
-            <p>Party wear should look stylish, visible, and premium online. Weak product presentation kills buyer trust fast.</p>
+            <h4>Party Wear Styled for Sophisticated Nights Out</h4>
+            <p>Shimmering statement sets, richer textures, and more luxurious presentation help these pieces stand out instantly.</p>
             <a class="btn btn-primary" href="#party">Explore Party Wear</a>
           </div>
         </div>
@@ -1114,30 +1761,30 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <h3>Why This Website Works Better</h3>
-            <p>Most beginner sites fail because they only chase “pretty.” That is not enough. A jewellery store website must help customers browse, filter, trust, and contact fast.</p>
+            <h3>Why the Storefront Feels More Professional</h3>
+            <p>Beautiful visuals matter, but trust also comes from simple browsing, clean pricing, premium imagery, and a buying flow that feels effortless.</p>
           </div>
         </div>
         <div class="feature-grid">
           <article class="card feature">
-            <div class="feature-icon">⌕</div>
-            <h4>Search Function</h4>
-            <p>Visitors can search jewellery products instead of wasting time scrolling blindly.</p>
+            <div class="feature-icon">&#128269;</div>
+            <h4>Smarter Discovery</h4>
+            <p>Visitors can search, filter, and sort the collection quickly instead of scrolling through a long undirected list.</p>
           </article>
           <article class="card feature">
-            <div class="feature-icon">◈</div>
-            <h4>Category Filtering</h4>
-            <p>Bracelets, earrings, party wear sets, bridal sets, necklace, and lockets are separated properly.</p>
+            <div class="feature-icon">&#9672;</div>
+            <h4>Clear Collection Structure</h4>
+            <p>Bracelets, earrings, party wear, bridal, necklaces, and lockets are separated cleanly for easier browsing.</p>
           </article>
           <article class="card feature">
-            <div class="feature-icon">🛒</div>
-            <h4>Ecommerce Layout</h4>
-            <p>Product cards include prices, ratings, add-to-cart, buy-now, and wishlist actions.</p>
+            <div class="feature-icon">&#128722;</div>
+            <h4>Store-Ready Shopping Tools</h4>
+            <p>Every product card includes pricing, ratings, add-to-cart controls, favourites, and direct order actions.</p>
           </article>
           <article class="card feature">
-            <div class="feature-icon">✦</div>
-            <h4>Luxury Branding</h4>
-            <p>Luxury black, champagne gold, and soft ivory create a cleaner premium jewellery look.</p>
+            <div class="feature-icon">&#10022;</div>
+            <h4>Editorial Brand Feel</h4>
+            <p>Luxury black, champagne gold, and richer photography create a more refined and memorable impression.</p>
           </article>
         </div>
       </div>
@@ -1147,30 +1794,30 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <h3>Customer Support & Store Policies</h3>
-            <p>Real ecommerce trust is not just product photos. Customers also look for contact clarity, support, return confidence, and delivery expectations.</p>
+            <h3>Service Details That Build Trust</h3>
+            <p>Professional presentation is strongest when it is matched by clear support, easy contact, and practical order guidance.</p>
           </div>
         </div>
         <div class="policy-grid">
           <article class="card policy">
-            <div class="policy-icon">☎</div>
-            <h4>Quick Support</h4>
-            <p>Direct customer support through WhatsApp, phone call, and email.</p>
+            <div class="policy-icon">&#9742;</div>
+            <h4>Responsive Support</h4>
+            <p>Direct customer help is available through WhatsApp, phone, and email for quick product questions.</p>
           </article>
           <article class="card policy">
-            <div class="policy-icon">↺</div>
-            <h4>Easy Inquiry</h4>
-            <p>Customers can reach out about pricing, availability, and collection details instantly.</p>
+            <div class="policy-icon">&#8634;</div>
+            <h4>Easy Ordering</h4>
+            <p>Customers can confirm pricing, availability, and delivery details without leaving the storefront experience.</p>
           </article>
           <article class="card policy">
-            <div class="policy-icon">✧</div>
-            <h4>Elegant Collections</h4>
-            <p>Bridal and party wear categories are separated to improve browsing and product focus.</p>
+            <div class="policy-icon">&#10023;</div>
+            <h4>Curated Collections</h4>
+            <p>Bridal and party wear pieces are grouped with intention so the page feels organized and boutique-led.</p>
           </article>
           <article class="card policy">
-            <div class="policy-icon">❤</div>
-            <h4>Brand Trust</h4>
-            <p>Professional presentation helps buyers take your jewellery business seriously.</p>
+            <div class="policy-icon">&#10084;</div>
+            <h4>Confidence to Purchase</h4>
+            <p>Better visuals, clearer details, and a smoother flow help shoppers feel more comfortable placing an order.</p>
           </article>
         </div>
       </div>
@@ -1214,8 +1861,8 @@
 
         <div class="contact-visual">
           <span class="pill">Lahore Based Store</span>
-          <h4>Jewellery Presentation Matters</h4>
-          <p>Your site now has the right structure. But here’s the hard truth: real product photos are still the thing that will decide whether people trust you or ignore you. Replace the stock images next.</p>
+          <h4>Book a Private Styling Conversation</h4>
+          <p>The storefront now combines richer imagery, clearer pricing, and a smoother shopping flow so customers can browse with more confidence before they message or order.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://www.facebook.com/share/1EG21ZCDCf/" target="_blank">Visit Facebook</a>
             <a class="btn btn-secondary" href="https://www.instagram.com/jewellersgalleria?igsh=Z2Q3eHp5cGZibDFy" target="_blank">Visit Instagram</a>
@@ -1230,7 +1877,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <h4>Jewellers Galleria</h4>
-          <p>Premium ladies jewellery in Lahore with bridal elegance, party wear glamour, and timeless statement pieces.</p>
+          <p>Premium ladies jewellery in Lahore with bridal elegance, party wear glamour, and timeless pieces curated to feel luxurious online.</p>
           <div class="socials">
             <a href="https://www.facebook.com/share/1EG21ZCDCf/" target="_blank">Facebook</a>
             <a href="https://www.instagram.com/jewellersgalleria?igsh=Z2Q3eHp5cGZibDFy" target="_blank">Instagram</a>
@@ -1243,6 +1890,7 @@
           <h5>Quick Links</h5>
           <a href="#home">Home</a>
           <a href="#categories">Shop</a>
+          <a href="#lookbook">Lookbook</a>
           <a href="#products">Products</a>
           <a href="#contact">Contact</a>
         </div>
@@ -1266,88 +1914,1085 @@
       </div>
 
       <div class="footer-bottom">
-        <span>© 2026 Jewellers Galleria. All rights reserved.</span>
-        <span>Built for VS Code editing and GitHub Pages hosting.</span>
+        <span>&copy; 2026 Jewellers Galleria. All rights reserved.</span>
+        <span>Built for easy updates and GitHub Pages hosting.</span>
       </div>
     </div>
   </footer>
 
+  <div class="drawer-backdrop" id="panelBackdrop"></div>
+
+  <aside class="side-panel" id="wishlistPanel" aria-hidden="true">
+    <div class="panel-header">
+      <div class="panel-title">
+        <h4>Favourites</h4>
+        <p id="wishlistMeta">Save the pieces you want to compare or order later.</p>
+      </div>
+      <button class="close-panel" type="button" data-panel-close="wishlist" aria-label="Close favourites">&times;</button>
+    </div>
+    <div class="panel-list" id="wishlistItems"></div>
+    <div class="panel-footer">
+      <button class="btn btn-secondary" id="clearWishlistBtn" type="button">Clear Favourites</button>
+    </div>
+  </aside>
+
+  <aside class="side-panel" id="cartPanel" aria-hidden="true">
+    <div class="panel-header">
+      <div class="panel-title">
+        <h4>Your Cart</h4>
+        <p id="cartMeta">Add products and update quantities here before checkout.</p>
+      </div>
+      <button class="close-panel" type="button" data-panel-close="cart" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="panel-list" id="cartItems"></div>
+    <div class="panel-footer">
+      <div class="panel-total">
+        <span>Subtotal</span>
+        <strong id="cartPanelSubtotal">Rs. 0</strong>
+      </div>
+      <button class="btn btn-primary" id="openCheckoutBtn" type="button">Proceed to Checkout</button>
+      <a class="btn btn-secondary" id="checkoutLink" href="https://wa.me/923321481499" target="_blank" rel="noopener">Express WhatsApp Order</a>
+      <button class="btn btn-secondary" id="clearCartBtn" type="button">Clear Cart</button>
+    </div>
+  </aside>
+
+  <div class="checkout-shell" id="checkoutShell" aria-hidden="true">
+    <div class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+      <div class="checkout-head">
+        <div>
+          <span class="pill">Secure Checkout</span>
+          <h4 id="checkoutTitle">Customer Details & Payment</h4>
+          <p>Complete the order form with delivery details, contact information, and a payment option. Customers can now choose Cash on Delivery or a card-payment request flow.</p>
+        </div>
+        <button class="close-panel" type="button" data-close-checkout aria-label="Close checkout">&times;</button>
+      </div>
+
+      <form class="checkout-form" id="checkoutForm">
+        <div class="checkout-grid">
+          <div class="checkout-column">
+            <section class="checkout-card">
+              <h5>Customer Details</h5>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="customerFirstName">First Name</label>
+                  <input id="customerFirstName" name="firstName" type="text" autocomplete="given-name" required />
+                </div>
+                <div class="field">
+                  <label for="customerLastName">Last Name</label>
+                  <input id="customerLastName" name="lastName" type="text" autocomplete="family-name" required />
+                </div>
+                <div class="field">
+                  <label for="customerPhone">Phone Number</label>
+                  <input id="customerPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required />
+                </div>
+                <div class="field">
+                  <label for="customerAltPhone">Alternate Phone</label>
+                  <input id="customerAltPhone" name="alternatePhone" type="tel" autocomplete="tel-national" inputmode="tel" />
+                </div>
+                <div class="field">
+                  <label for="customerEmail">Email Address</label>
+                  <input id="customerEmail" name="email" type="email" autocomplete="email" required />
+                </div>
+                <div class="field">
+                  <label for="customerCity">City</label>
+                  <input id="customerCity" name="city" type="text" autocomplete="address-level2" value="Lahore" required />
+                </div>
+                <div class="field full">
+                  <label for="customerAddress">Street Address</label>
+                  <input id="customerAddress" name="address" type="text" autocomplete="street-address" placeholder="House / Street / Block / Landmark" required />
+                </div>
+                <div class="field">
+                  <label for="customerArea">Area / Town</label>
+                  <input id="customerArea" name="area" type="text" autocomplete="address-level3" placeholder="Johar Town, DHA, Gulberg..." required />
+                </div>
+                <div class="field">
+                  <label for="customerPostalCode">Postal Code</label>
+                  <input id="customerPostalCode" name="postalCode" type="text" autocomplete="postal-code" inputmode="numeric" />
+                </div>
+                <div class="field full">
+                  <label for="customerNotes">Order Notes</label>
+                  <textarea id="customerNotes" name="notes" placeholder="Gift wrapping, best time to call, color preference, or any delivery note"></textarea>
+                </div>
+              </div>
+            </section>
+
+            <section class="checkout-card">
+              <h5>Delivery & Payment</h5>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="deliveryMethod">Delivery Method</label>
+                  <select id="deliveryMethod" name="deliveryMethod">
+                    <option value="standard">Standard Delivery - Rs. 250</option>
+                    <option value="same_day">Same Day Lahore - Rs. 450</option>
+                    <option value="pickup">Store Pickup - Free</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="deliveryWindow">Preferred Time</label>
+                  <select id="deliveryWindow" name="deliveryWindow">
+                    <option value="Anytime">Anytime</option>
+                    <option value="Morning">Morning</option>
+                    <option value="Afternoon">Afternoon</option>
+                    <option value="Evening">Evening</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="payment-options">
+                <label class="payment-option is-selected" data-payment-option>
+                  <input type="radio" name="paymentMethod" value="cod" checked />
+                  <div>
+                    <strong>Cash on Delivery</strong>
+                    <span>Customer pays at delivery after order confirmation from the store.</span>
+                  </div>
+                </label>
+                <label class="payment-option" data-payment-option>
+                  <input type="radio" name="paymentMethod" value="card" />
+                  <div>
+                    <strong>Card Payment Request</strong>
+                    <span>Collect card details in the portal and confirm the order through a secure payment follow-up.</span>
+                  </div>
+                </label>
+              </div>
+
+              <div class="payment-panel" id="codPaymentPanel">
+                <p class="section-note">Cash on Delivery is best for local orders. The customer details and order summary will be prepared professionally before checkout.</p>
+              </div>
+
+              <div class="payment-panel" id="cardPaymentPanel" hidden>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="cardHolderName">Card Holder Name</label>
+                    <input id="cardHolderName" name="cardHolderName" type="text" autocomplete="cc-name" data-card-field />
+                  </div>
+                  <div class="field">
+                    <label for="cardNumber">Card Number</label>
+                    <input id="cardNumber" name="cardNumber" type="text" autocomplete="cc-number" inputmode="numeric" maxlength="19" placeholder="1234 5678 9012 3456" data-card-field />
+                  </div>
+                  <div class="field">
+                    <label for="cardExpiry">Expiry</label>
+                    <input id="cardExpiry" name="cardExpiry" type="text" autocomplete="cc-exp" inputmode="numeric" maxlength="5" placeholder="MM/YY" data-card-field />
+                  </div>
+                  <div class="field">
+                    <label for="cardCvv">CVV</label>
+                    <input id="cardCvv" name="cardCvv" type="password" autocomplete="cc-csc" inputmode="numeric" maxlength="4" placeholder="123" data-card-field />
+                  </div>
+                </div>
+                <p class="field-help">Professional note: for a live public store, connect a certified payment gateway before collecting real card payments. This portal keeps card data local and only sends the order request summary.</p>
+              </div>
+            </section>
+          </div>
+
+          <div class="checkout-column">
+            <section class="checkout-card">
+              <h5>Order Summary</h5>
+              <div class="summary-list" id="checkoutSummaryList"></div>
+              <div class="summary-totals">
+                <div class="summary-row">
+                  <span>Subtotal</span>
+                  <strong id="checkoutSubtotal">Rs. 0</strong>
+                </div>
+                <div class="summary-row">
+                  <span>Delivery Fee</span>
+                  <strong id="checkoutDeliveryFee">Rs. 0</strong>
+                </div>
+                <div class="summary-row total">
+                  <span>Total</span>
+                  <strong id="checkoutTotal">Rs. 0</strong>
+                </div>
+              </div>
+              <p class="section-note" id="checkoutSummaryNote">Orders are prepared with customer details, address, phone number, and payment preference so the merchant has the complete order record.</p>
+            </section>
+
+            <div class="checkout-actions">
+              <button class="btn btn-secondary" type="button" data-close-checkout>Continue Shopping</button>
+              <button class="btn btn-primary" type="submit" id="placeOrderBtn">Place COD Order</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
   <script>
+    const whatsappNumber = '923321481499';
+    const imageBank = {
+      braceletGold: 'https://images.unsplash.com/photo-1741071520895-47d81779c11e?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000',
+      braceletRose: 'https://images.unsplash.com/photo-1727859350557-3e4bd9bf1827?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000',
+      earringCrystal: 'https://images.unsplash.com/photo-1781901726815-29af905d0b46?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000',
+      earringPearl: 'https://images.unsplash.com/photo-1708389828558-8a904033f3f2?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000',
+      partyEmerald: 'https://images.unsplash.com/photo-1720729823936-185a87978043?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000',
+      partyVelvet: 'https://images.unsplash.com/photo-1758995115857-2de1eb6283d0?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000',
+      bridalRoyal: 'https://images.unsplash.com/photo-1736849597224-5c7a8d066931?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000',
+      bridalHeirloom: 'https://images.unsplash.com/photo-1762708594532-46345d574457?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000',
+      necklacePearl: 'https://images.unsplash.com/photo-1611085583191-a3b181a88401?auto=format&fit=crop&w=1400&q=80',
+      necklaceGold: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1400&q=80',
+      locketGold: 'https://images.unsplash.com/photo-1486821416551-68a65ef4d618?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000'
+    };
+
+    const catalog = [
+      {
+        id: 'royal-charm-bracelet',
+        name: 'Royal Charm Bracelet',
+        category: 'Bracelets',
+        occasion: 'Gift',
+        tag: 'Best Seller',
+        price: 3499,
+        oldPrice: 4499,
+        rating: 4.9,
+        stock: 'Ready to ship in Lahore',
+        image: imageBank.braceletGold,
+        description: 'Elegant bracelet with a refined finish for gifting, day events, and polished daily wear.'
+      },
+      {
+        id: 'rose-luxe-bracelet',
+        name: 'Rose Luxe Bracelet',
+        category: 'Bracelets',
+        occasion: 'Party Wear',
+        tag: 'New Arrival',
+        price: 3999,
+        oldPrice: 4899,
+        rating: 4.8,
+        stock: 'Limited stock this week',
+        image: imageBank.braceletRose,
+        description: 'A warm-toned bracelet with a modern silhouette that adds shine to dinner and party looks.'
+      },
+      {
+        id: 'noor-stone-cuff',
+        name: 'Noor Stone Cuff',
+        category: 'Bracelets',
+        occasion: 'Casual',
+        tag: 'Signature',
+        price: 4599,
+        oldPrice: 5799,
+        rating: 4.7,
+        stock: 'Ready to ship in Lahore',
+        image: imageBank.braceletGold,
+        description: 'Structured cuff styling with a premium feel for women who want a stronger statement piece.'
+      },
+      {
+        id: 'starlit-tennis-bracelet',
+        name: 'Starlit Tennis Bracelet',
+        category: 'Bracelets',
+        occasion: 'Gift',
+        tag: 'Premium Pick',
+        price: 5299,
+        oldPrice: 6499,
+        rating: 5,
+        stock: 'Only a few pieces left',
+        image: imageBank.braceletRose,
+        description: 'Fine sparkle and a clean luxury line make this bracelet ideal for memorable gifting.'
+      },
+      {
+        id: 'crystal-drop-earrings',
+        name: 'Crystal Drop Earrings',
+        category: 'Earrings',
+        occasion: 'Party Wear',
+        tag: 'Best Seller',
+        price: 3699,
+        oldPrice: 4799,
+        rating: 4.9,
+        stock: 'Ready to ship in Lahore',
+        image: imageBank.earringCrystal,
+        description: 'Graceful drop earrings with a bright finish that lift evening looks without feeling heavy.'
+      },
+      {
+        id: 'pearl-glow-studs',
+        name: 'Pearl Glow Studs',
+        category: 'Earrings',
+        occasion: 'Casual',
+        tag: 'Everyday',
+        price: 2499,
+        oldPrice: 3099,
+        rating: 4.4,
+        stock: 'Ready to ship in Lahore',
+        image: imageBank.earringPearl,
+        description: 'Minimal studs with soft pearl energy for clean daily styling and easy gifting.'
+      },
+      {
+        id: 'luna-cascade-earrings',
+        name: 'Luna Cascade Earrings',
+        category: 'Earrings',
+        occasion: 'Gift',
+        tag: 'Signature',
+        price: 4299,
+        oldPrice: 5399,
+        rating: 4.8,
+        stock: 'Limited stock this week',
+        image: imageBank.earringCrystal,
+        description: 'A longer silhouette designed to add movement and sparkle to festive outfits.'
+      },
+      {
+        id: 'champagne-halo-studs',
+        name: 'Champagne Halo Studs',
+        category: 'Earrings',
+        occasion: 'Casual',
+        tag: 'Minimal',
+        price: 2899,
+        oldPrice: 3599,
+        rating: 4.6,
+        stock: 'Ready to ship in Lahore',
+        image: imageBank.earringPearl,
+        description: 'Soft champagne tones keep these studs versatile for office dressing and family functions.'
+      },
+      {
+        id: 'emerald-party-wear-set',
+        name: 'Emerald Party Wear Set',
+        category: 'Party Wear Set',
+        occasion: 'Party Wear',
+        tag: 'Event Edit',
+        price: 8499,
+        oldPrice: 10999,
+        rating: 5,
+        stock: 'Only a few pieces left',
+        image: imageBank.partyEmerald,
+        description: 'Rich event-ready styling with premium color contrast for festive evenings and receptions.'
+      },
+      {
+        id: 'zaria-festive-set',
+        name: 'Zaria Festive Set',
+        category: 'Party Wear Set',
+        occasion: 'Party Wear',
+        tag: 'Hot Pick',
+        price: 9199,
+        oldPrice: 11999,
+        rating: 4.8,
+        stock: 'Ready to ship in Lahore',
+        image: imageBank.partyVelvet,
+        description: 'A fuller party set built for styled photos, wedding dinners, and dressy family events.'
+      },
+      {
+        id: 'velvet-night-set',
+        name: 'Velvet Night Set',
+        category: 'Party Wear Set',
+        occasion: 'Party Wear',
+        tag: 'Luxe Evening',
+        price: 9699,
+        oldPrice: 12499,
+        rating: 4.9,
+        stock: 'Limited stock this week',
+        image: imageBank.partyVelvet,
+        description: 'Designed to feel rich and glamorous in black, maroon, navy, and formal evening wardrobes.'
+      },
+      {
+        id: 'meher-statement-set',
+        name: 'Meher Statement Set',
+        category: 'Party Wear Set',
+        occasion: 'Gift',
+        tag: 'Ready to Gift',
+        price: 7899,
+        oldPrice: 9999,
+        rating: 4.7,
+        stock: 'Ready to ship in Lahore',
+        image: imageBank.partyEmerald,
+        description: 'A confident party set with bold visual impact for customers who want an instant standout look.'
+      },
+      {
+        id: 'royal-bridal-necklace-set',
+        name: 'Royal Bridal Necklace Set',
+        category: 'Bridal Sets',
+        occasion: 'Bridal',
+        tag: 'Bridal Bestseller',
+        price: 14999,
+        oldPrice: 18999,
+        rating: 5,
+        stock: 'Made to order on request',
+        image: imageBank.bridalRoyal,
+        description: 'Luxury bridal styling that lifts the complete wedding look with richer detail and presence.'
+      },
+      {
+        id: 'noor-bridal-polki-set',
+        name: 'Noor Bridal Polki Set',
+        category: 'Bridal Sets',
+        occasion: 'Bridal',
+        tag: 'Heirloom',
+        price: 16499,
+        oldPrice: 20499,
+        rating: 4.9,
+        stock: 'Made to order on request',
+        image: imageBank.bridalHeirloom,
+        description: 'An ornate bridal set inspired by heirloom styling for clients who want a grander finish.'
+      },
+      {
+        id: 'maharani-bridal-choker',
+        name: 'Maharani Bridal Choker',
+        category: 'Bridal Sets',
+        occasion: 'Bridal',
+        tag: 'Couture',
+        price: 17499,
+        oldPrice: 21499,
+        rating: 5,
+        stock: 'Made to order on request',
+        image: imageBank.bridalHeirloom,
+        description: 'A bridal choker-led set made for stronger portraits, layered dupatta styling, and impact.'
+      },
+      {
+        id: 'heirloom-wedding-set',
+        name: 'Heirloom Wedding Set',
+        category: 'Bridal Sets',
+        occasion: 'Bridal',
+        tag: 'Premium Bridal',
+        price: 18999,
+        oldPrice: 22999,
+        rating: 4.8,
+        stock: 'Only a few pieces left',
+        image: imageBank.bridalRoyal,
+        description: 'Premium bridal styling for customers looking for a fuller, more memorable wedding presence.'
+      },
+      {
+        id: 'luxury-pearl-necklace',
+        name: 'Luxury Pearl Necklace',
+        category: 'Necklace',
+        occasion: 'Gift',
+        tag: 'Classic',
+        price: 5999,
+        oldPrice: 7299,
+        rating: 4.4,
+        stock: 'Ready to ship in Lahore',
+        image: imageBank.necklacePearl,
+        description: 'A soft luxury necklace for elegant outfits, formal lunches, and timeless gift styling.'
+      },
+      {
+        id: 'ivory-grace-necklace',
+        name: 'Ivory Grace Necklace',
+        category: 'Necklace',
+        occasion: 'Casual',
+        tag: 'Layering',
+        price: 6499,
+        oldPrice: 7899,
+        rating: 4.7,
+        stock: 'Ready to ship in Lahore',
+        image: imageBank.necklacePearl,
+        description: 'Clean lines and subtle shine make this necklace easy to layer across dressy and casual looks.'
+      },
+      {
+        id: 'golden-cascade-necklace',
+        name: 'Golden Cascade Necklace',
+        category: 'Necklace',
+        occasion: 'Party Wear',
+        tag: 'Occasion',
+        price: 7199,
+        oldPrice: 8799,
+        rating: 4.8,
+        stock: 'Limited stock this week',
+        image: imageBank.necklaceGold,
+        description: 'A brighter gold-tone necklace that adds movement and polish to event-ready outfits.'
+      },
+      {
+        id: 'celeste-layered-necklace',
+        name: 'Celeste Layered Necklace',
+        category: 'Necklace',
+        occasion: 'Casual',
+        tag: 'New Arrival',
+        price: 5699,
+        oldPrice: 6899,
+        rating: 4.5,
+        stock: 'Ready to ship in Lahore',
+        image: imageBank.necklacePearl,
+        description: 'Layered styling with a premium finish for women who want a modern, flexible statement piece.'
+      },
+      {
+        id: 'golden-heart-locket',
+        name: 'Golden Heart Locket',
+        category: 'Lockets',
+        occasion: 'Gift',
+        tag: 'Best Seller',
+        price: 2899,
+        oldPrice: 3499,
+        rating: 4.4,
+        stock: 'Ready to ship in Lahore',
+        image: imageBank.locketGold,
+        description: 'A delicate locket option for birthdays, keepsakes, and daily wear with sentimental value.'
+      },
+      {
+        id: 'blossom-memory-locket',
+        name: 'Blossom Memory Locket',
+        category: 'Lockets',
+        occasion: 'Gift',
+        tag: 'Gift Edit',
+        price: 3299,
+        oldPrice: 3999,
+        rating: 4.6,
+        stock: 'Ready to ship in Lahore',
+        image: imageBank.locketGold,
+        description: 'A sweeter locket profile designed for thoughtful gifting and softer feminine styling.'
+      },
+      {
+        id: 'moonlit-charm-locket',
+        name: 'Moonlit Charm Locket',
+        category: 'Lockets',
+        occasion: 'Casual',
+        tag: 'Everyday Luxury',
+        price: 3599,
+        oldPrice: 4299,
+        rating: 4.5,
+        stock: 'Limited stock this week',
+        image: imageBank.locketGold,
+        description: 'A polished everyday locket for customers who want something delicate but still premium.'
+      },
+      {
+        id: 'heritage-keepsake-locket',
+        name: 'Heritage Keepsake Locket',
+        category: 'Lockets',
+        occasion: 'Gift',
+        tag: 'Signature',
+        price: 4099,
+        oldPrice: 4999,
+        rating: 4.7,
+        stock: 'Ready to ship in Lahore',
+        image: imageBank.locketGold,
+        description: 'A richer keepsake style with more presence for anniversaries, gifts, and personal collections.'
+      }
+    ];
+
+    const catalogIndex = new Map(catalog.map(product => [product.id, product]));
+
+    function loadJSON(key, fallback) {
+      try {
+        const parsed = JSON.parse(localStorage.getItem(key));
+        return parsed ?? fallback;
+      } catch {
+        return fallback;
+      }
+    }
+
+    function normalizeCart(raw) {
+      const normalized = {};
+      if (!raw || typeof raw !== 'object') {
+        return normalized;
+      }
+
+      Object.entries(raw).forEach(([id, quantity]) => {
+        const cleanQuantity = Math.max(0, Math.floor(Number(quantity) || 0));
+        if (catalogIndex.has(id) && cleanQuantity > 0) {
+          normalized[id] = cleanQuantity;
+        }
+      });
+
+      return normalized;
+    }
+
+    function normalizeFavourites(raw) {
+      if (!Array.isArray(raw)) {
+        return [];
+      }
+
+      return [...new Set(raw.filter(id => catalogIndex.has(id)))];
+    }
+
+    const state = {
+      activeCategory: 'all',
+      openPanel: null,
+      cart: normalizeCart(loadJSON('jg-cart-v1', {})),
+      favourites: normalizeFavourites(loadJSON('jg-favourites-v1', []))
+    };
+
+    const formatter = new Intl.NumberFormat('en-PK');
     const productGrid = document.getElementById('productGrid');
-    const products = Array.from(productGrid.querySelectorAll('.product-card'));
     const productSearch = document.getElementById('productSearch');
     const categoryFilter = document.getElementById('categoryFilter');
     const sortFilter = document.getElementById('sortFilter');
-    const filterChips = document.querySelectorAll('.filter-chip');
-    const categoryButtons = document.querySelectorAll('.category-btn');
+    const occasionFilter = document.getElementById('occasionFilter');
+    const filterChips = Array.from(document.querySelectorAll('.filter-chip'));
+    const categoryButtons = Array.from(document.querySelectorAll('.category-btn'));
     const siteSearch = document.getElementById('siteSearch');
     const menuToggle = document.getElementById('menuToggle');
     const menuInner = document.getElementById('menuInner');
+    const wishlistToggle = document.getElementById('wishlistToggle');
+    const cartToggle = document.getElementById('cartToggle');
+    const wishlistCount = document.getElementById('wishlistCount');
+    const cartCount = document.getElementById('cartCount');
+    const resultsCount = document.getElementById('resultsCount');
+    const resultsSummary = document.getElementById('resultsSummary');
+    const cartSubtotalLabel = document.getElementById('cartSubtotal');
+    const panelBackdrop = document.getElementById('panelBackdrop');
+    const wishlistPanel = document.getElementById('wishlistPanel');
+    const cartPanel = document.getElementById('cartPanel');
+    const wishlistMeta = document.getElementById('wishlistMeta');
+    const cartMeta = document.getElementById('cartMeta');
+    const wishlistItems = document.getElementById('wishlistItems');
+    const cartItems = document.getElementById('cartItems');
+    const clearWishlistBtn = document.getElementById('clearWishlistBtn');
+    const clearCartBtn = document.getElementById('clearCartBtn');
+    const cartPanelSubtotal = document.getElementById('cartPanelSubtotal');
+    const checkoutLink = document.getElementById('checkoutLink');
+    const toast = document.getElementById('toast');
 
-    let activeCategory = 'all';
+    let toastTimer;
 
-    function renderProducts() {
-      let filtered = [...products];
-      const searchText = productSearch.value.toLowerCase().trim();
+    function persistState() {
+      localStorage.setItem('jg-cart-v1', JSON.stringify(state.cart));
+      localStorage.setItem('jg-favourites-v1', JSON.stringify(state.favourites));
+    }
 
-      if (activeCategory !== 'all') {
-        filtered = filtered.filter(product => product.dataset.category === activeCategory);
-      }
+    function formatCurrency(amount) {
+      return `Rs. ${formatter.format(amount)}`;
+    }
 
-      if (searchText) {
-        filtered = filtered.filter(product => product.dataset.name.toLowerCase().includes(searchText));
-      }
+    function renderStars(rating) {
+      const fullStars = Math.round(rating);
+      return `${'&#9733;'.repeat(fullStars)}${'&#9734;'.repeat(5 - fullStars)}`;
+    }
 
-      const categoryValue = categoryFilter.value;
-      if (categoryValue !== 'all') {
-        filtered = filtered.filter(product => product.dataset.category === categoryValue);
-      }
-
-      const sortValue = sortFilter.value;
-      if (sortValue === 'low-high') {
-        filtered.sort((a, b) => Number(a.dataset.price) - Number(b.dataset.price));
-      } else if (sortValue === 'high-low') {
-        filtered.sort((a, b) => Number(b.dataset.price) - Number(a.dataset.price));
-      } else if (sortValue === 'name') {
-        filtered.sort((a, b) => a.dataset.name.localeCompare(b.dataset.name));
-      }
-
-      products.forEach(product => product.style.display = 'none');
-      filtered.forEach(product => {
-        product.style.display = 'flex';
-        productGrid.appendChild(product);
+    function setActiveChip(value) {
+      filterChips.forEach(chip => {
+        chip.classList.toggle('active', chip.dataset.filter === value);
       });
     }
 
-    productSearch.addEventListener('input', renderProducts);
-    categoryFilter.addEventListener('change', renderProducts);
-    sortFilter.addEventListener('change', renderProducts);
+    function getCartEntries() {
+      return Object.entries(state.cart)
+        .map(([id, quantity]) => ({ product: catalogIndex.get(id), quantity }))
+        .filter(entry => entry.product && entry.quantity > 0);
+    }
+
+    function getFavouriteEntries() {
+      return state.favourites
+        .map(id => catalogIndex.get(id))
+        .filter(Boolean);
+    }
+
+    function getCartCount() {
+      return getCartEntries().reduce((sum, entry) => sum + entry.quantity, 0);
+    }
+
+    function getCartSubtotal() {
+      return getCartEntries().reduce((sum, entry) => sum + entry.product.price * entry.quantity, 0);
+    }
+
+    function buildProductLink(product) {
+      const message = encodeURIComponent(`Hello Jewellers Galleria, I want to order ${product.name} for ${formatCurrency(product.price)}.`);
+      return `https://wa.me/${whatsappNumber}?text=${message}`;
+    }
+
+    function buildCartCheckoutLink(entries) {
+      if (!entries.length) {
+        return `https://wa.me/${whatsappNumber}`;
+      }
+
+      const lines = entries.map(entry => `- ${entry.product.name} x${entry.quantity} (${formatCurrency(entry.product.price * entry.quantity)})`);
+      const message = [
+        'Hello Jewellers Galleria, I want to place this order:',
+        '',
+        ...lines,
+        '',
+        `Subtotal: ${formatCurrency(getCartSubtotal())}`
+      ].join('\n');
+
+      return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    }
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2200);
+    }
+
+    function updateHeaderCounts() {
+      const favouritesTotal = state.favourites.length;
+      const cartTotal = getCartCount();
+
+      wishlistCount.textContent = favouritesTotal;
+      cartCount.textContent = cartTotal;
+      wishlistCount.style.display = favouritesTotal ? 'grid' : 'none';
+      cartCount.style.display = cartTotal ? 'grid' : 'none';
+      cartSubtotalLabel.textContent = formatCurrency(getCartSubtotal());
+
+      wishlistToggle.classList.toggle('active', state.openPanel === 'wishlist' || favouritesTotal > 0);
+      cartToggle.classList.toggle('active', state.openPanel === 'cart' || cartTotal > 0);
+    }
+
+    function getFilteredProducts() {
+      let filtered = [...catalog];
+      const searchText = productSearch.value.toLowerCase().trim();
+
+      if (state.activeCategory !== 'all') {
+        filtered = filtered.filter(product => product.category === state.activeCategory);
+      }
+
+      if (categoryFilter.value !== 'all') {
+        filtered = filtered.filter(product => product.category === categoryFilter.value);
+      }
+
+      if (occasionFilter.value !== 'all') {
+        filtered = filtered.filter(product => product.occasion === occasionFilter.value);
+      }
+
+      if (searchText) {
+        filtered = filtered.filter(product =>
+          product.name.toLowerCase().includes(searchText) ||
+          product.category.toLowerCase().includes(searchText) ||
+          product.description.toLowerCase().includes(searchText) ||
+          product.tag.toLowerCase().includes(searchText)
+        );
+      }
+
+      if (sortFilter.value === 'low-high') {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sortFilter.value === 'high-low') {
+        filtered.sort((a, b) => b.price - a.price);
+      } else if (sortFilter.value === 'name') {
+        filtered.sort((a, b) => a.name.localeCompare(b.name));
+      }
+
+      return filtered;
+    }
+
+    function renderProductCard(product) {
+      const isFavourite = state.favourites.includes(product.id);
+      const quantityInCart = state.cart[product.id] || 0;
+      const ratingLabel = `${product.rating.toFixed(1)} out of 5`;
+
+      return `
+        <article class="card product-card" data-id="${product.id}">
+          <div class="product-media" style="background-image:url('${product.image}')"></div>
+          <div class="card-body">
+            <div class="product-badges">
+              <span class="pill">${product.category}</span>
+              <span class="product-badge">${product.tag}</span>
+            </div>
+            <div class="product-meta">
+              <h4>${product.name}</h4>
+              <span class="stars" aria-label="Rated ${ratingLabel}">${renderStars(product.rating)}</span>
+            </div>
+            <p>${product.description}</p>
+            <div class="stock-note">${product.occasion} occasion • ${product.stock}${quantityInCart ? ` • In cart: ${quantityInCart}` : ''}</div>
+            <div class="price-row">
+              <div>
+                <span class="old-price">${formatCurrency(product.oldPrice)}</span>
+                <span class="price">${formatCurrency(product.price)}</span>
+              </div>
+            </div>
+            <div class="product-actions">
+              <button class="small-btn primary full" type="button" data-action="add-to-cart" data-id="${product.id}">
+                ${quantityInCart ? `Add Another (${quantityInCart})` : 'Add to Cart'}
+              </button>
+              <a class="small-btn ghost full" href="${buildProductLink(product)}" target="_blank" rel="noopener">Buy Now</a>
+              <button class="small-btn ${isFavourite ? 'is-active' : ''}" type="button" data-action="toggle-wishlist" data-id="${product.id}" aria-pressed="${isFavourite}">
+                ${isFavourite ? '&#10084; Saved' : '&#9825; Favourite'}
+              </button>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderProducts() {
+      const filtered = getFilteredProducts();
+      const searchText = productSearch.value.trim();
+      const summaryParts = [];
+
+      if (state.activeCategory !== 'all') {
+        summaryParts.push(state.activeCategory);
+      } else if (categoryFilter.value !== 'all') {
+        summaryParts.push(categoryFilter.value);
+      }
+
+      if (occasionFilter.value !== 'all') {
+        summaryParts.push(occasionFilter.value);
+      }
+
+      if (searchText) {
+        summaryParts.push(`search "${searchText}"`);
+      }
+
+      resultsCount.textContent = `${filtered.length} ${filtered.length === 1 ? 'piece' : 'pieces'} shown`;
+      resultsSummary.textContent = summaryParts.length
+        ? `Filtered by ${summaryParts.join(' • ')}.`
+        : 'Use search, filters, and sorting to refine the catalogue.';
+
+      if (!filtered.length) {
+        productGrid.innerHTML = '<article class="card empty-state" style="grid-column: 1 / -1;">No pieces matched your filters. Clear one of the filters or try a simpler product search.</article>';
+        return;
+      }
+
+      productGrid.innerHTML = filtered.map(renderProductCard).join('');
+    }
+
+    function renderWishlistPanel() {
+      const favourites = getFavouriteEntries();
+
+      wishlistMeta.textContent = favourites.length
+        ? `${favourites.length} saved ${favourites.length === 1 ? 'piece' : 'pieces'} ready for review.`
+        : 'Save the pieces you want to compare or order later.';
+
+      clearWishlistBtn.style.display = favourites.length ? 'inline-flex' : 'none';
+
+      if (!favourites.length) {
+        wishlistItems.innerHTML = '<div class="empty-state">No favourites yet. Tap Favourite on any product card to save it here.</div>';
+        return;
+      }
+
+      wishlistItems.innerHTML = favourites.map(product => `
+        <article class="line-item">
+          <div class="line-thumb" style="background-image:url('${product.image}')"></div>
+          <div class="line-meta">
+            <h5>${product.name}</h5>
+            <p>${product.category} • ${product.tag} • ${formatCurrency(product.price)}</p>
+            <div class="line-row">
+              <button class="small-btn primary" type="button" data-action="move-to-cart" data-id="${product.id}">Add to Cart</button>
+              <button class="small-btn" type="button" data-action="remove-from-wishlist" data-id="${product.id}">Remove</button>
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function renderCartPanel() {
+      const entries = getCartEntries();
+      const subtotal = getCartSubtotal();
+
+      cartMeta.textContent = entries.length
+        ? `${getCartCount()} item${getCartCount() === 1 ? '' : 's'} in cart. Update quantities before checkout.`
+        : 'Add products and update quantities here before checkout.';
+
+      cartPanelSubtotal.textContent = formatCurrency(subtotal);
+      checkoutLink.href = buildCartCheckoutLink(entries);
+      checkoutLink.style.pointerEvents = entries.length ? 'auto' : 'none';
+      checkoutLink.style.opacity = entries.length ? '1' : '0.55';
+      clearCartBtn.style.display = entries.length ? 'inline-flex' : 'none';
+
+      if (!entries.length) {
+        cartItems.innerHTML = '<div class="empty-state">Your cart is empty. Add a few pieces from the collection to begin an order.</div>';
+        return;
+      }
+
+      cartItems.innerHTML = entries.map(entry => `
+        <article class="line-item">
+          <div class="line-thumb" style="background-image:url('${entry.product.image}')"></div>
+          <div class="line-meta">
+            <h5>${entry.product.name}</h5>
+            <p>${entry.product.category} • ${formatCurrency(entry.product.price)} each</p>
+            <div class="line-row">
+              <div class="qty-controls">
+                <button class="qty-btn" type="button" data-action="decrease-qty" data-id="${entry.product.id}" aria-label="Decrease quantity">-</button>
+                <strong>${entry.quantity}</strong>
+                <button class="qty-btn" type="button" data-action="increase-qty" data-id="${entry.product.id}" aria-label="Increase quantity">+</button>
+              </div>
+              <strong>${formatCurrency(entry.product.price * entry.quantity)}</strong>
+            </div>
+            <div class="line-row">
+              <button class="small-btn" type="button" data-action="remove-from-cart" data-id="${entry.product.id}">Remove</button>
+              <button class="small-btn" type="button" data-action="toggle-wishlist" data-id="${entry.product.id}">Save to Favourites</button>
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function renderEverything() {
+      renderProducts();
+      renderWishlistPanel();
+      renderCartPanel();
+      updateHeaderCounts();
+    }
+
+    function closePanels() {
+      state.openPanel = null;
+      panelBackdrop.classList.remove('open');
+      wishlistPanel.classList.remove('open');
+      cartPanel.classList.remove('open');
+      wishlistPanel.setAttribute('aria-hidden', 'true');
+      cartPanel.setAttribute('aria-hidden', 'true');
+      updateHeaderCounts();
+    }
+
+    function openPanel(name) {
+      state.openPanel = name;
+      panelBackdrop.classList.add('open');
+      wishlistPanel.classList.toggle('open', name === 'wishlist');
+      cartPanel.classList.toggle('open', name === 'cart');
+      wishlistPanel.setAttribute('aria-hidden', String(name !== 'wishlist'));
+      cartPanel.setAttribute('aria-hidden', String(name !== 'cart'));
+      updateHeaderCounts();
+    }
+
+    function setCartQuantity(id, nextQuantity) {
+      if (!catalogIndex.has(id)) {
+        return;
+      }
+
+      if (nextQuantity <= 0) {
+        delete state.cart[id];
+      } else {
+        state.cart[id] = nextQuantity;
+      }
+
+      persistState();
+      renderEverything();
+    }
+
+    function addToCart(id) {
+      const product = catalogIndex.get(id);
+      if (!product) {
+        return;
+      }
+
+      state.cart[id] = (state.cart[id] || 0) + 1;
+      persistState();
+      renderEverything();
+      showToast(`${product.name} added to cart.`);
+    }
+
+    function toggleWishlist(id) {
+      const product = catalogIndex.get(id);
+      if (!product) {
+        return;
+      }
+
+      if (state.favourites.includes(id)) {
+        state.favourites = state.favourites.filter(item => item !== id);
+        showToast(`${product.name} removed from favourites.`);
+      } else {
+        state.favourites = [...state.favourites, id];
+        showToast(`${product.name} saved to favourites.`);
+      }
+
+      persistState();
+      renderEverything();
+    }
+
+    productGrid.addEventListener('click', event => {
+      const control = event.target.closest('[data-action]');
+      if (!control) {
+        return;
+      }
+
+      const { action, id } = control.dataset;
+      if (action === 'add-to-cart') {
+        addToCart(id);
+      } else if (action === 'toggle-wishlist') {
+        toggleWishlist(id);
+      }
+    });
+
+    wishlistItems.addEventListener('click', event => {
+      const control = event.target.closest('[data-action]');
+      if (!control) {
+        return;
+      }
+
+      const { action, id } = control.dataset;
+      if (action === 'move-to-cart') {
+        addToCart(id);
+        openPanel('cart');
+      } else if (action === 'remove-from-wishlist') {
+        toggleWishlist(id);
+      }
+    });
+
+    cartItems.addEventListener('click', event => {
+      const control = event.target.closest('[data-action]');
+      if (!control) {
+        return;
+      }
+
+      const { action, id } = control.dataset;
+      const currentQuantity = state.cart[id] || 0;
+
+      if (action === 'increase-qty') {
+        setCartQuantity(id, currentQuantity + 1);
+      } else if (action === 'decrease-qty') {
+        setCartQuantity(id, currentQuantity - 1);
+      } else if (action === 'remove-from-cart') {
+        setCartQuantity(id, 0);
+        const product = catalogIndex.get(id);
+        if (product) {
+          showToast(`${product.name} removed from cart.`);
+        }
+      } else if (action === 'toggle-wishlist') {
+        toggleWishlist(id);
+      }
+    });
+
+    clearWishlistBtn.addEventListener('click', () => {
+      if (!state.favourites.length) {
+        return;
+      }
+
+      state.favourites = [];
+      persistState();
+      renderEverything();
+      showToast('Favourites cleared.');
+    });
+
+    clearCartBtn.addEventListener('click', () => {
+      if (!getCartEntries().length) {
+        return;
+      }
+
+      state.cart = {};
+      persistState();
+      renderEverything();
+      showToast('Cart cleared.');
+    });
 
     filterChips.forEach(chip => {
       chip.addEventListener('click', () => {
-        filterChips.forEach(c => c.classList.remove('active'));
-        chip.classList.add('active');
-        activeCategory = chip.dataset.filter;
+        state.activeCategory = chip.dataset.filter;
         categoryFilter.value = 'all';
+        setActiveChip(state.activeCategory);
         renderProducts();
       });
     });
 
     categoryButtons.forEach(button => {
       button.addEventListener('click', () => {
-        activeCategory = button.dataset.filter;
-        filterChips.forEach(c => c.classList.remove('active'));
-        const matchingChip = document.querySelector(`.filter-chip[data-filter="${button.dataset.filter}"]`);
-        if (matchingChip) matchingChip.classList.add('active');
+        state.activeCategory = button.dataset.filter;
         categoryFilter.value = 'all';
+        setActiveChip(state.activeCategory);
         renderProducts();
       });
     });
+
+    productSearch.addEventListener('input', renderProducts);
+
+    categoryFilter.addEventListener('change', () => {
+      state.activeCategory = 'all';
+      setActiveChip('all');
+      renderProducts();
+    });
+
+    occasionFilter.addEventListener('change', renderProducts);
+    sortFilter.addEventListener('change', renderProducts);
 
     siteSearch.addEventListener('input', () => {
       productSearch.value = siteSearch.value;
       document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
       renderProducts();
+    });
+
+    wishlistToggle.addEventListener('click', () => {
+      if (state.openPanel === 'wishlist') {
+        closePanels();
+      } else {
+        openPanel('wishlist');
+      }
+    });
+
+    cartToggle.addEventListener('click', () => {
+      if (state.openPanel === 'cart') {
+        closePanels();
+      } else {
+        openPanel('cart');
+      }
+    });
+
+    panelBackdrop.addEventListener('click', closePanels);
+
+    document.querySelectorAll('[data-panel-close]').forEach(button => {
+      button.addEventListener('click', closePanels);
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        closePanels();
+      }
     });
 
     menuToggle.addEventListener('click', () => {
@@ -1357,6 +3002,341 @@
     document.querySelectorAll('nav a').forEach(link => {
       link.addEventListener('click', () => menuInner.classList.remove('open'));
     });
+
+    renderEverything();
+  </script>
+  <script>
+    state.checkoutOpen = false;
+
+    const deliveryRatesV2 = {
+      standard: 250,
+      same_day: 450,
+      pickup: 0
+    };
+
+    const deliveryLabelsV2 = {
+      standard: 'Standard Delivery',
+      same_day: 'Same Day Lahore',
+      pickup: 'Store Pickup'
+    };
+
+    const paymentLabelsV2 = {
+      cod: 'Cash on Delivery',
+      card: 'Card Payment Request'
+    };
+
+    const openCheckoutBtnEl = document.getElementById('openCheckoutBtn');
+    const checkoutShellEl = document.getElementById('checkoutShell');
+    const checkoutFormEl = document.getElementById('checkoutForm');
+    const deliveryMethodEl = document.getElementById('deliveryMethod');
+    const checkoutSummaryListEl = document.getElementById('checkoutSummaryList');
+    const checkoutSubtotalEl = document.getElementById('checkoutSubtotal');
+    const checkoutDeliveryFeeEl = document.getElementById('checkoutDeliveryFee');
+    const checkoutTotalEl = document.getElementById('checkoutTotal');
+    const checkoutSummaryNoteEl = document.getElementById('checkoutSummaryNote');
+    const placeOrderBtnEl = document.getElementById('placeOrderBtn');
+    const codPaymentPanelEl = document.getElementById('codPaymentPanel');
+    const cardPaymentPanelEl = document.getElementById('cardPaymentPanel');
+    const paymentMethodInputsEl = Array.from(checkoutFormEl.querySelectorAll('input[name="paymentMethod"]'));
+    const paymentOptionCardsEl = Array.from(checkoutFormEl.querySelectorAll('[data-payment-option]'));
+    const cardFieldInputsEl = Array.from(checkoutFormEl.querySelectorAll('[data-card-field]'));
+    const cardNumberEl = document.getElementById('cardNumber');
+    const cardExpiryEl = document.getElementById('cardExpiry');
+    const cardCvvEl = document.getElementById('cardCvv');
+    const checkoutCloseButtonsEl = Array.from(document.querySelectorAll('[data-close-checkout]'));
+
+    function getSelectedPaymentMethodV2() {
+      return checkoutFormEl.elements.paymentMethod.value || 'cod';
+    }
+
+    function getDeliveryFeeV2() {
+      return deliveryRatesV2[deliveryMethodEl.value] ?? 0;
+    }
+
+    function getCheckoutTotalV2() {
+      return getCartSubtotal() + getDeliveryFeeV2();
+    }
+
+    function updatePaymentOptionCardsV2() {
+      paymentOptionCardsEl.forEach(card => {
+        const radio = card.querySelector('input[type="radio"]');
+        card.classList.toggle('is-selected', Boolean(radio && radio.checked));
+      });
+    }
+
+    function syncCheckoutPaymentUIV2() {
+      const isCard = getSelectedPaymentMethodV2() === 'card';
+
+      cardPaymentPanelEl.hidden = !isCard;
+      codPaymentPanelEl.hidden = isCard;
+      placeOrderBtnEl.textContent = isCard ? 'Submit Card Order Request' : 'Place COD Order';
+      checkoutSummaryNoteEl.textContent = isCard
+        ? 'Professional note: this portal keeps card details local in the browser. For a live store, connect a secure payment gateway before accepting real card payments.'
+        : 'Cash on Delivery will send the full customer, address, and delivery details to the store for confirmation.';
+
+      cardFieldInputsEl.forEach(input => {
+        input.disabled = !isCard;
+        input.required = isCard;
+      });
+
+      updatePaymentOptionCardsV2();
+      renderCheckoutSummaryV2();
+    }
+
+    function formatCardNumberV2() {
+      const digits = cardNumberEl.value.replace(/\D/g, '').slice(0, 16);
+      cardNumberEl.value = digits.replace(/(\d{4})(?=\d)/g, '$1 ').trim();
+    }
+
+    function formatCardExpiryV2() {
+      const digits = cardExpiryEl.value.replace(/\D/g, '').slice(0, 4);
+      cardExpiryEl.value = digits.length <= 2 ? digits : `${digits.slice(0, 2)}/${digits.slice(2)}`;
+    }
+
+    function sanitizeCardCvvV2() {
+      cardCvvEl.value = cardCvvEl.value.replace(/\D/g, '').slice(0, 4);
+    }
+
+    function maskCardNumberV2(rawValue) {
+      const digits = String(rawValue || '').replace(/\D/g, '');
+      return digits ? `ending ${digits.slice(-4)}` : 'selected';
+    }
+
+    function renderCheckoutSummaryV2() {
+      const entries = getCartEntries();
+      const deliveryFee = getDeliveryFeeV2();
+      const total = getCheckoutTotalV2();
+
+      openCheckoutBtnEl.disabled = !entries.length;
+      placeOrderBtnEl.disabled = !entries.length;
+      checkoutSubtotalEl.textContent = formatCurrency(getCartSubtotal());
+      checkoutDeliveryFeeEl.textContent = deliveryFee === 0 ? 'Free' : formatCurrency(deliveryFee);
+      checkoutTotalEl.textContent = formatCurrency(total);
+
+      if (!entries.length) {
+        checkoutSummaryListEl.innerHTML = '<div class="empty-state">Add products to the cart to prepare the order portal.</div>';
+        return;
+      }
+
+      checkoutSummaryListEl.innerHTML = entries.map(entry => `
+        <div class="summary-item">
+          <div>
+            <strong>${entry.product.name}</strong>
+            <span>${entry.product.category} | Qty ${entry.quantity}</span>
+          </div>
+          <strong>${formatCurrency(entry.product.price * entry.quantity)}</strong>
+        </div>
+      `).join('');
+    }
+
+    function buildCheckoutOrderMessageV2(orderReference) {
+      const formData = new FormData(checkoutFormEl);
+      const entries = getCartEntries();
+      const paymentMethod = getSelectedPaymentMethodV2();
+      const deliveryMethod = deliveryMethodEl.value;
+      const deliveryFee = getDeliveryFeeV2();
+      const customerName = `${formData.get('firstName')} ${formData.get('lastName')}`.trim();
+      const cardSummary = paymentMethod === 'card'
+        ? `${paymentLabelsV2.card} (${maskCardNumberV2(formData.get('cardNumber'))})`
+        : paymentLabelsV2.cod;
+      const lines = entries.map(entry => `- ${entry.product.name} x${entry.quantity} (${formatCurrency(entry.product.price * entry.quantity)})`);
+
+      return [
+        `Hello Jewellers Galleria, new order request ${orderReference}`,
+        '',
+        'Customer Details',
+        `Name: ${customerName}`,
+        `Phone: ${formData.get('phone')}`,
+        `Alternate Phone: ${formData.get('alternatePhone') || 'N/A'}`,
+        `Email: ${formData.get('email')}`,
+        `Address: ${formData.get('address')}`,
+        `Area / Town: ${formData.get('area')}`,
+        `City: ${formData.get('city')}`,
+        `Postal Code: ${formData.get('postalCode') || 'N/A'}`,
+        `Preferred Time: ${formData.get('deliveryWindow')}`,
+        '',
+        'Delivery & Payment',
+        `Delivery Method: ${deliveryLabelsV2[deliveryMethod]}`,
+        `Payment Method: ${cardSummary}`,
+        paymentMethod === 'card' && formData.get('cardHolderName')
+          ? `Card Holder Name: ${formData.get('cardHolderName')}`
+          : 'Card Holder Name: N/A',
+        '',
+        'Order Items',
+        ...lines,
+        '',
+        `Subtotal: ${formatCurrency(getCartSubtotal())}`,
+        `Delivery Fee: ${deliveryFee === 0 ? 'Free' : formatCurrency(deliveryFee)}`,
+        `Total: ${formatCurrency(getCheckoutTotalV2())}`,
+        '',
+        `Order Notes: ${formData.get('notes') || 'None'}`
+      ].join('\n');
+    }
+
+    function openCheckoutV2() {
+      if (!getCartEntries().length) {
+        showToast('Add products to the cart before opening checkout.');
+        return;
+      }
+
+      closePanels();
+      state.checkoutOpen = true;
+      checkoutShellEl.classList.add('open');
+      checkoutShellEl.setAttribute('aria-hidden', 'false');
+      renderCheckoutSummaryV2();
+      syncCheckoutPaymentUIV2();
+    }
+
+    function closeCheckoutV2() {
+      state.checkoutOpen = false;
+      checkoutShellEl.classList.remove('open');
+      checkoutShellEl.setAttribute('aria-hidden', 'true');
+    }
+
+    renderCartPanel = function () {
+      const entries = getCartEntries();
+      const subtotal = getCartSubtotal();
+
+      cartMeta.textContent = entries.length
+        ? `${getCartCount()} item${getCartCount() === 1 ? '' : 's'} in cart. Continue to checkout for address, contact, and payment details.`
+        : 'Add products and update quantities here before checkout.';
+
+      cartPanelSubtotal.textContent = formatCurrency(subtotal);
+      checkoutLink.href = buildCartCheckoutLink(entries);
+      checkoutLink.style.pointerEvents = entries.length ? 'auto' : 'none';
+      checkoutLink.style.opacity = entries.length ? '1' : '0.55';
+      clearCartBtn.style.display = entries.length ? 'inline-flex' : 'none';
+      openCheckoutBtnEl.disabled = !entries.length;
+
+      if (!entries.length) {
+        cartItems.innerHTML = '<div class="empty-state">Your cart is empty. Add a few pieces from the collection to begin an order.</div>';
+        return;
+      }
+
+      cartItems.innerHTML = entries.map(entry => `
+        <article class="line-item">
+          <div class="line-thumb" style="background-image:url('${entry.product.image}')"></div>
+          <div class="line-meta">
+            <h5>${entry.product.name}</h5>
+            <p>${entry.product.category} | ${formatCurrency(entry.product.price)} each</p>
+            <div class="line-row">
+              <div class="qty-controls">
+                <button class="qty-btn" type="button" data-action="decrease-qty" data-id="${entry.product.id}" aria-label="Decrease quantity">-</button>
+                <strong>${entry.quantity}</strong>
+                <button class="qty-btn" type="button" data-action="increase-qty" data-id="${entry.product.id}" aria-label="Increase quantity">+</button>
+              </div>
+              <strong>${formatCurrency(entry.product.price * entry.quantity)}</strong>
+            </div>
+            <div class="line-row">
+              <button class="small-btn" type="button" data-action="remove-from-cart" data-id="${entry.product.id}">Remove</button>
+              <button class="small-btn" type="button" data-action="toggle-wishlist" data-id="${entry.product.id}">Save to Favourites</button>
+            </div>
+          </div>
+        </article>
+      `).join('');
+    };
+
+    renderEverything = function () {
+      renderProducts();
+      renderWishlistPanel();
+      renderCartPanel();
+      renderCheckoutSummaryV2();
+      updateHeaderCounts();
+    };
+
+    closePanels = function () {
+      state.openPanel = null;
+      panelBackdrop.classList.remove('open');
+      wishlistPanel.classList.remove('open');
+      cartPanel.classList.remove('open');
+      wishlistPanel.setAttribute('aria-hidden', 'true');
+      cartPanel.setAttribute('aria-hidden', 'true');
+      updateHeaderCounts();
+    };
+
+    openPanel = function (name) {
+      if (state.checkoutOpen) {
+        closeCheckoutV2();
+      }
+
+      state.openPanel = name;
+      panelBackdrop.classList.add('open');
+      wishlistPanel.classList.toggle('open', name === 'wishlist');
+      cartPanel.classList.toggle('open', name === 'cart');
+      wishlistPanel.setAttribute('aria-hidden', String(name !== 'wishlist'));
+      cartPanel.setAttribute('aria-hidden', String(name !== 'cart'));
+      updateHeaderCounts();
+    };
+
+    openCheckoutBtnEl.addEventListener('click', openCheckoutV2);
+
+    paymentMethodInputsEl.forEach(input => {
+      input.addEventListener('change', syncCheckoutPaymentUIV2);
+    });
+
+    deliveryMethodEl.addEventListener('change', renderCheckoutSummaryV2);
+    cardNumberEl.addEventListener('input', formatCardNumberV2);
+    cardExpiryEl.addEventListener('input', formatCardExpiryV2);
+    cardCvvEl.addEventListener('input', sanitizeCardCvvV2);
+
+    checkoutFormEl.addEventListener('submit', event => {
+      event.preventDefault();
+
+      if (!getCartEntries().length) {
+        showToast('Your cart is empty.');
+        return;
+      }
+
+      syncCheckoutPaymentUIV2();
+
+      if (!checkoutFormEl.reportValidity()) {
+        return;
+      }
+
+      const orderReference = `JG-${Date.now().toString().slice(-6)}`;
+      const paymentMethod = getSelectedPaymentMethodV2();
+      const orderLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(buildCheckoutOrderMessageV2(orderReference))}`;
+
+      window.open(orderLink, '_blank', 'noopener');
+
+      showToast(
+        paymentMethod === 'card'
+          ? 'Card order request prepared. Connect a secure gateway before accepting live payments.'
+          : 'COD order request prepared.'
+      );
+
+      state.cart = {};
+      persistState();
+      checkoutFormEl.reset();
+      deliveryMethodEl.value = 'standard';
+      checkoutFormEl.elements.paymentMethod.value = 'cod';
+      cardFieldInputsEl.forEach(input => {
+        input.value = '';
+      });
+      renderEverything();
+      syncCheckoutPaymentUIV2();
+      closeCheckoutV2();
+      closePanels();
+    });
+
+    checkoutShellEl.addEventListener('click', event => {
+      if (event.target === checkoutShellEl) {
+        closeCheckoutV2();
+      }
+    });
+
+    checkoutCloseButtonsEl.forEach(button => {
+      button.addEventListener('click', closeCheckoutV2);
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && state.checkoutOpen) {
+        closeCheckoutV2();
+      }
+    });
+
+    renderEverything();
+    syncCheckoutPaymentUIV2();
   </script>
 </body>
 </html>
